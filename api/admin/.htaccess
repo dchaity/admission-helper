@@ -1,0 +1,6 @@
+# Block direct browser access to non-PHP files in /admin
+Options -Indexes
+
+<FilesMatch "\.(sql|md|log|json|txt)$">
+    Require all denied
+</FilesMatch>

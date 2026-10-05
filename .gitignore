@@ -1,0 +1,43 @@
+# ============================================
+#  Sensitive files — DO NOT COMMIT
+# ============================================
+
+# Environment & config with secrets
+.env
+.env.local
+config.local.php
+api/config.local.php
+
+# Database dumps with real data
+*.sql.bak
+*.sqlite
+dump.sql
+backup.sql
+
+# Admin utilities (shouldn't be in repo)
+hash.php
+verify.php
+test.php
+check.php
+
+# Editor & OS files
+.vscode/
+.idea/
+*.swp
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+error_log
+php_errors.log
+
+# Node (if you add tools later)
+node_modules/
+package-lock.json
+
+# Temporary
+*.tmp
+*.bak
+*.cache

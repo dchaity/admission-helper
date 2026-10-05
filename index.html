@@ -1,0 +1,2286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>University Admission Helper - Bangladesh</title>
+
+    <!-- Fonts & Icons -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ========== SKY BLUE LIGHT THEME (DEFAULT) ========== */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --sky-50:  #f0f9ff;
+            --sky-100: #e0f2fe;
+            --sky-200: #bae6fd;
+            --sky-300: #7dd3fc;
+            --sky-400: #38bdf8;
+            --sky-500: #0ea5e9;
+            --sky-600: #0284c7;
+            --sky-700: #0369a1;
+
+            --bg-primary: #f0f9ff;
+            --bg-secondary: #e0f2fe;
+            --bg-card: #ffffff;
+            --bg-elevated: #ffffff;
+
+            --border: #bae6fd;
+            --border-hover: #7dd3fc;
+
+            --primary: #0ea5e9;
+            --primary-light: #38bdf8;
+            --primary-dark: #0284c7;
+            --secondary: #0284c7;
+            --accent: #06b6d4;
+
+            --gradient: linear-gradient(135deg, #0ea5e9, #38bdf8);
+            --gradient-hover: linear-gradient(135deg, #0284c7, #0ea5e9);
+            --gradient-subtle: linear-gradient(135deg, rgba(14,165,233,0.08), rgba(56,189,248,0.08));
+
+            --text: #0c4a6e;
+            --text-secondary: #075985;
+            --text-muted: #64748b;
+            --text-inverse: #ffffff;
+
+            --success: #10b981;
+            --success-bg: #ecfdf5;
+            --warning: #f59e0b;
+            --warning-bg: #fffbeb;
+            --danger: #ef4444;
+            --danger-bg: #fef2f2;
+            --info: #0ea5e9;
+            --info-bg: #f0f9ff;
+
+            --shadow-sm: 0 1px 2px 0 rgba(14,165,233,0.06);
+            --shadow: 0 4px 6px -1px rgba(14,165,233,0.1), 0 2px 4px -2px rgba(14,165,233,0.06);
+            --shadow-md: 0 10px 15px -3px rgba(14,165,233,0.12), 0 4px 6px -4px rgba(14,165,233,0.08);
+            --shadow-lg: 0 20px 25px -5px rgba(14,165,233,0.15), 0 8px 10px -6px rgba(14,165,233,0.1);
+            --shadow-xl: 0 25px 50px -12px rgba(14,165,233,0.2);
+
+            --header-bg: rgba(240,249,255,0.85);
+            --input-bg: #ffffff;
+            --hover-bg: #e0f2fe;
+            --radius-sm: 8px;
+            --radius: 12px;
+            --radius-lg: 16px;
+            --radius-xl: 24px;
+        }
+
+        body.dark-mode {
+            --bg-primary: #0a1929;
+            --bg-secondary: #0f2438;
+            --bg-card: #142c44;
+            --bg-elevated: #1a3550;
+            --border: #1e4976;
+            --border-hover: #2d6ba5;
+            --text: #e0f2fe;
+            --text-secondary: #bae6fd;
+            --text-muted: #94a3b8;
+            --header-bg: rgba(10,25,41,0.9);
+            --input-bg: #0f2438;
+            --hover-bg: #1a3550;
+            --success-bg: rgba(16,185,129,0.1);
+            --warning-bg: rgba(245,158,11,0.1);
+            --danger-bg: rgba(239,68,68,0.1);
+            --info-bg: rgba(14,165,233,0.1);
+            --shadow-sm: 0 1px 2px 0 rgba(0,0,0,0.3);
+            --shadow: 0 4px 6px -1px rgba(0,0,0,0.4);
+            --shadow-md: 0 10px 15px -3px rgba(0,0,0,0.5);
+            --shadow-lg: 0 20px 25px -5px rgba(0,0,0,0.6);
+            --shadow-xl: 0 25px 50px -12px rgba(0,0,0,0.7);
+        }
+
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg-primary);
+            color: var(--text);
+            line-height: 1.6;
+            transition: background-color 0.3s, color 0.3s;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .gradient-bg {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: -1; opacity: 0.6;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(56,189,248,0.25) 0%, transparent 50%),
+                radial-gradient(circle at 85% 80%, rgba(14,165,233,0.2) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(125,211,252,0.15) 0%, transparent 60%);
+            animation: gradientShift 20s ease infinite;
+        }
+        @keyframes gradientShift {
+            0%,100% { transform: scale(1); opacity: 0.6; }
+            50% { transform: scale(1.1); opacity: 0.8; }
+        }
+
+        .container { width: 100%; max-width: 1280px; margin: 0 auto; padding: 0 2rem; }
+        @media (max-width: 768px) { .container { padding: 0 1.5rem; } }
+        @media (max-width: 480px) { .container { padding: 0 1rem; } }
+
+        /* Header */
+        header {
+            position: sticky; top: 0; z-index: 1000;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border);
+            transition: all 0.3s;
+        }
+        .header-container {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 0.75rem 2rem; max-width: 1280px; margin: 0 auto;
+        }
+        @media (max-width: 768px) { .header-container { padding: 0.75rem 1.5rem; } }
+        @media (max-width: 480px) { .header-container { padding: 0.75rem 1rem; } }
+
+        .logo {
+            font-size: 1.4rem; font-weight: 700; display: flex; align-items: center;
+            gap: 10px; text-decoration: none; color: var(--text); cursor: pointer;
+            white-space: nowrap; transition: transform 0.2s;
+        }
+        .logo:hover { transform: scale(1.02); }
+        .logo i {
+            background: var(--gradient); -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent; font-size: 1.8rem;
+        }
+        @media (max-width: 480px) { .logo { font-size: 1.1rem; } .logo i { font-size: 1.5rem; } }
+
+        .nav-links { display: flex; gap: 0.25rem; list-style: none; }
+        .nav-link {
+            color: var(--text-secondary); text-decoration: none; font-weight: 500;
+            font-size: 0.9rem; padding: 0.5rem 0.9rem; border-radius: var(--radius-sm);
+            cursor: pointer; transition: all 0.2s;
+        }
+        .nav-link:hover { color: var(--primary-dark); background: var(--gradient-subtle); }
+        .nav-link.active { color: var(--primary-dark); background: var(--gradient-subtle); font-weight: 600; }
+        @media (max-width: 900px) { .nav-links { display: none; } }
+
+        .user-profile { position: relative; }
+        .profile-btn {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text); font-size: 0.9rem; cursor: pointer;
+            display: flex; align-items: center; gap: 8px;
+            padding: 0.5rem 1rem; border-radius: 30px;
+            transition: all 0.2s; box-shadow: var(--shadow-sm);
+        }
+        .profile-btn:hover { border-color: var(--primary); box-shadow: var(--shadow); }
+        .profile-btn span { max-width: 100px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+        @media (max-width: 360px) { .profile-btn span { display: none; } }
+
+        .profile-dropdown {
+            position: absolute; top: 120%; right: 0;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius); min-width: 260px;
+            box-shadow: var(--shadow-xl); padding: 0.5rem 0;
+            display: none; flex-direction: column; z-index: 1001;
+            animation: dropdownIn 0.2s ease;
+        }
+        @keyframes dropdownIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .profile-dropdown.show { display: flex; }
+        .profile-dropdown-item {
+            padding: 0.75rem 1.25rem; display: flex; align-items: center;
+            gap: 12px; cursor: pointer; transition: all 0.15s;
+            color: var(--text); text-decoration: none; border: none;
+            background: none; width: 100%; text-align: left;
+            font-size: 0.9rem; font-family: inherit;
+        }
+        .profile-dropdown-item:hover { background: var(--hover-bg); color: var(--primary-dark); }
+        .profile-dropdown-item i { width: 20px; color: var(--primary); }
+        .profile-info { padding: 0.75rem 1.25rem; border-bottom: 1px solid var(--border); margin-bottom: 0.25rem; }
+        .profile-name { font-weight: 600; margin-bottom: 0.2rem; color: var(--text); }
+        .profile-email { font-size: 0.8rem; color: var(--text-secondary); word-break: break-all; }
+        .badge {
+            background: var(--gradient); color: white; font-size: 0.65rem;
+            padding: 0.15rem 0.5rem; border-radius: 30px;
+            margin-left: auto; font-weight: 600;
+        }
+
+        .mobile-toggle {
+            display: none; background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text); font-size: 1.1rem; padding: 0.5rem 0.8rem;
+            border-radius: var(--radius-sm); cursor: pointer;
+        }
+        @media (max-width: 900px) { .mobile-toggle { display: block; } }
+
+        .main-content { min-height: calc(100vh - 160px); padding: 2.5rem 0; }
+        @media (max-width: 768px) { .main-content { padding: 2rem 0; } }
+
+        .page { display: none; animation: fadeIn 0.4s ease; }
+        .page.active { display: block; }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .btn {
+            padding: 0.75rem 1.75rem; border: none; border-radius: 30px;
+            font-family: 'Inter', sans-serif; font-weight: 600; font-size: 0.95rem;
+            cursor: pointer; transition: all 0.2s;
+            display: inline-flex; align-items: center; justify-content: center;
+            gap: 8px; white-space: nowrap; text-decoration: none;
+        }
+        .btn:active { transform: scale(0.98); }
+        .btn-primary {
+            background: var(--gradient); color: white;
+            box-shadow: 0 4px 14px rgba(14,165,233,0.35);
+        }
+        .btn-primary:hover {
+            background: var(--gradient-hover); transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(14,165,233,0.45);
+        }
+        .btn-secondary {
+            background: var(--bg-card); border: 1px solid var(--border);
+            color: var(--text); box-shadow: var(--shadow-sm);
+        }
+        .btn-secondary:hover { border-color: var(--primary); color: var(--primary-dark); box-shadow: var(--shadow); }
+        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text); }
+        .btn-outline:hover { border-color: var(--primary); color: var(--primary-dark); background: var(--gradient-subtle); }
+        .btn-success { background: var(--success); color: white; }
+        .btn-block { width: 100%; }
+        .btn-sm { padding: 0.5rem 1rem; font-size: 0.85rem; }
+        .btn-lg { padding: 1rem 2.5rem; font-size: 1.05rem; }
+
+        /* Hero */
+        .hero-section {
+            min-height: 85vh; display: flex; align-items: center;
+            position: relative; margin-bottom: 3rem;
+        }
+        @media (max-width: 768px) { .hero-section { min-height: auto; padding: 3rem 0; } }
+        .hero-content { max-width: 800px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 0.5rem 1rem; background: var(--gradient-subtle);
+            border: 1px solid var(--sky-200); border-radius: 30px;
+            color: var(--primary-dark); font-size: 0.85rem;
+            font-weight: 500; margin-bottom: 1.5rem;
+        }
+        .hero-title {
+            font-size: clamp(2rem, 8vw, 3.75rem); font-weight: 800;
+            line-height: 1.15; margin-bottom: 1.5rem; letter-spacing: -0.02em;
+            color: var(--text);
+        }
+        .hero-title .gradient-text {
+            background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .hero-subtitle {
+            font-size: clamp(1rem, 3vw, 1.15rem);
+            color: var(--text-secondary); margin-bottom: 2rem; max-width: 600px;
+        }
+        .hero-buttons { display: flex; gap: 1rem; flex-wrap: wrap; }
+        @media (max-width: 480px) { .hero-buttons .btn { width: 100%; } }
+
+        .scroll-indicator {
+            position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%);
+            display: flex; flex-direction: column; align-items: center;
+            gap: 0.5rem; color: var(--text-muted); font-size: 0.8rem;
+            animation: bounce 2s infinite;
+        }
+        @keyframes bounce {
+            0%,20%,50%,80%,100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-8px); }
+            60% { transform: translateX(-50%) translateY(-4px); }
+        }
+
+        /* Auth */
+        .auth-container {
+            max-width: 480px; margin: 2rem auto;
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-xl); padding: 2.5rem;
+            box-shadow: var(--shadow-lg);
+            scroll-margin-top: 100px;
+        }
+        @media (max-width: 480px) { .auth-container { padding: 1.75rem 1.25rem; } }
+        .auth-title {
+            text-align: center; font-size: clamp(1.6rem, 5vw, 1.9rem);
+            font-weight: 700; margin-bottom: 0.5rem;
+            background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .auth-subtitle { text-align: center; color: var(--text-secondary); margin-bottom: 1.75rem; font-size: 0.95rem; }
+
+        .form-group { margin-bottom: 1.25rem; }
+        .form-label { display: block; font-weight: 500; margin-bottom: 0.5rem; color: var(--text); font-size: 0.9rem; }
+        .form-input {
+            width: 100%; padding: 0.85rem 1.1rem;
+            background: var(--input-bg); border: 1px solid var(--border);
+            border-radius: var(--radius); font-family: 'Inter', sans-serif;
+            font-size: 0.95rem; color: var(--text); transition: all 0.2s;
+        }
+        .form-input:focus {
+            outline: none; border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.15);
+        }
+        .form-input::placeholder { color: var(--text-muted); }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        @media (max-width: 480px) { .form-row { grid-template-columns: 1fr; } }
+
+        .auth-link { text-align: center; margin-top: 1.25rem; color: var(--text-secondary); font-size: 0.9rem; }
+        .auth-link a { color: var(--primary-dark); text-decoration: none; font-weight: 500; cursor: pointer; }
+        .auth-link a:hover { text-decoration: underline; }
+
+        /* Content pages */
+        .content-page { max-width: 900px; margin: 0 auto; }
+        .content-header { text-align: center; margin-bottom: 2.5rem; }
+        .content-header h1 {
+            font-size: clamp(1.75rem, 6vw, 2.5rem); font-weight: 700; margin-bottom: 0.75rem;
+            background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .content-header p { color: var(--text-secondary); font-size: clamp(0.95rem, 2.5vw, 1.1rem); }
+
+        .content-section {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 2rem;
+            margin-bottom: 1.5rem; box-shadow: var(--shadow-sm);
+        }
+        @media (max-width: 480px) { .content-section { padding: 1.25rem; } }
+        .content-section h2 { font-size: clamp(1.3rem, 4vw, 1.6rem); margin-bottom: 1.25rem; color: var(--text); }
+        .content-section h3 { font-size: clamp(1.1rem, 3vw, 1.2rem); margin: 1.25rem 0 0.75rem; color: var(--primary-dark); }
+        .content-section p { color: var(--text-secondary); margin-bottom: 0.9rem; line-height: 1.7; }
+        .content-section ul, .content-section ol { margin: 0.9rem 0 0.9rem 1.5rem; color: var(--text-secondary); }
+        .content-section li { margin-bottom: 0.4rem; }
+
+        /* University cards */
+        .university-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+        @media (max-width: 480px) { .university-grid { grid-template-columns: 1fr; } }
+
+        .university-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 1.5rem;
+            transition: all 0.3s; height: 100%;
+            display: flex; flex-direction: column;
+            box-shadow: var(--shadow-sm);
+            position: relative; overflow: hidden;
+        }
+        .university-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0;
+            height: 4px; background: var(--gradient);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .university-card:hover {
+            transform: translateY(-4px); border-color: var(--primary);
+            box-shadow: var(--shadow-lg);
+        }
+        .university-card:hover::before { opacity: 1; }
+
+        .university-badge {
+            display: inline-block; padding: 0.3rem 0.9rem;
+            background: var(--gradient-subtle); color: var(--primary-dark);
+            border-radius: 30px; font-size: 0.75rem; font-weight: 600;
+            margin-bottom: 0.9rem; align-self: flex-start;
+            text-transform: capitalize; border: 1px solid var(--sky-200);
+        }
+        .university-name { font-size: 1.2rem; margin-bottom: 0.9rem; line-height: 1.3; font-weight: 600; }
+        .university-details { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; color: var(--text-secondary); font-size: 0.9rem; }
+        .university-details i { width: 18px; color: var(--primary); }
+        .university-card p { color: var(--text-secondary); margin-bottom: 1rem; flex-grow: 1; font-size: 0.9rem; line-height: 1.6; }
+        .university-card .btn { margin-top: auto; }
+
+        /* Filters */
+        .filter-buttons { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; margin: 1.5rem 0 1rem; }
+        .filter-btn {
+            padding: 0.5rem 1.4rem; background: var(--bg-card);
+            border: 1px solid var(--border); border-radius: 30px;
+            color: var(--text); cursor: pointer; transition: all 0.2s;
+            font-size: 0.9rem; font-family: inherit; font-weight: 500;
+        }
+        .filter-btn.active, .filter-btn:hover {
+            background: var(--gradient); border-color: transparent; color: white;
+            box-shadow: 0 4px 12px rgba(14,165,233,0.3);
+        }
+        .city-filter { display: flex; justify-content: center; margin: 1rem 0 0; }
+        .city-filter select {
+            width: auto; min-width: 200px; background: var(--input-bg);
+            border: 1px solid var(--border); border-radius: 30px;
+            padding: 0.6rem 1.2rem; font-size: 0.9rem; cursor: pointer;
+            color: var(--text); font-family: inherit;
+        }
+        .city-filter select:focus {
+            outline: none; border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(14,165,233,0.15);
+        }
+        @media (max-width: 640px) { .city-filter select { width: 100%; } }
+
+        /* Scholarship cards */
+        .scholarship-grid {
+            display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem; margin-top: 1.5rem;
+        }
+        @media (max-width: 480px) { .scholarship-grid { grid-template-columns: 1fr; } }
+        .scholarship-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 1.5rem;
+            height: 100%; display: flex; flex-direction: column;
+            box-shadow: var(--shadow-sm); transition: all 0.3s;
+        }
+        .scholarship-card:hover {
+            transform: translateY(-4px); box-shadow: var(--shadow-lg);
+            border-color: var(--primary);
+        }
+        .scholarship-badge {
+            display: inline-block; padding: 0.3rem 0.9rem;
+            background: linear-gradient(135deg, rgba(14,165,233,0.1), rgba(6,182,212,0.1));
+            color: var(--primary-dark); border-radius: 30px;
+            font-size: 0.75rem; font-weight: 600; margin-bottom: 0.9rem;
+            align-self: flex-start; border: 1px solid var(--sky-200);
+        }
+        .scholarship-amount {
+            font-size: clamp(1.4rem, 4vw, 1.75rem); font-weight: 700;
+            color: var(--primary-dark); margin-bottom: 0.75rem;
+        }
+        .scholarship-deadline {
+            color: var(--text-secondary); margin: 0.75rem 0;
+            font-size: 0.85rem; display: flex; align-items: center; gap: 6px;
+        }
+        .scholarship-card .btn { margin-top: auto; }
+
+        /* Dashboard */
+        .dashboard-header {
+            display: flex; justify-content: space-between; align-items: center;
+            margin-bottom: 1.75rem; flex-wrap: wrap; gap: 1rem;
+        }
+        .dashboard-title {
+            font-size: clamp(1.4rem, 4vw, 1.9rem); font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .dashboard-cards {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.25rem; margin-bottom: 2rem;
+        }
+        @media (max-width: 480px) { .dashboard-cards { grid-template-columns: 1fr; } }
+        .dashboard-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 1.5rem;
+            text-align: center; box-shadow: var(--shadow-sm);
+            transition: all 0.3s; position: relative; overflow: hidden;
+        }
+        .dashboard-card::after {
+            content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+            height: 3px; background: var(--gradient);
+            transform: scaleX(0); transition: transform 0.3s;
+        }
+        .dashboard-card:hover::after { transform: scaleX(1); }
+        .dashboard-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+        .dashboard-card-title {
+            color: var(--text-secondary); margin-bottom: 0.75rem; font-size: 0.9rem;
+            display: flex; align-items: center; justify-content: center;
+            gap: 8px; font-weight: 500;
+        }
+        .dashboard-card-value {
+            font-size: clamp(1.75rem, 5vw, 2.5rem); font-weight: 700;
+            background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+
+        .applications-section, .bookmarks-section, .scholarship-apps-section { margin-top: 2rem; }
+        .applications-section h3, .bookmarks-section h3, .scholarship-apps-section h3 {
+            margin-bottom: 1.25rem; font-size: 1.2rem;
+        }
+
+        .table-responsive {
+            overflow-x: auto; -webkit-overflow-scrolling: touch;
+            max-width: 100vw; margin-bottom: 1rem;
+            border-radius: var(--radius); border: 1px solid var(--border);
+        }
+        .applications-table {
+            width: 100%; border-collapse: collapse;
+            background: var(--bg-card); min-width: 600px;
+        }
+        .applications-table th, .applications-table td {
+            padding: 0.85rem 1rem; text-align: left;
+            border-bottom: 1px solid var(--border);
+        }
+        .applications-table th {
+            background: var(--bg-secondary); color: var(--text);
+            font-weight: 600; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 0.5px;
+        }
+        .applications-table td { color: var(--text-secondary); font-size: 0.9rem; }
+        .applications-table tr:last-child td { border-bottom: none; }
+        .applications-table tr:hover td { background: var(--hover-bg); }
+
+        .progress-bar {
+            width: 100%; height: 8px; background: var(--border);
+            border-radius: 10px; margin: 1rem 0; overflow: hidden;
+        }
+        .progress-fill {
+            height: 100%; background: var(--gradient);
+            border-radius: 10px; width: 0%; transition: width 1s ease;
+        }
+        .flex-grow { flex: 1; }
+
+        /* Modal */
+        .modal {
+            display: none; position: fixed; top: 0; left: 0;
+            width: 100%; height: 100%; background: rgba(12,74,110,0.4);
+            backdrop-filter: blur(4px); z-index: 2000;
+            justify-content: center; align-items: center;
+            padding: 1rem; animation: fadeIn 0.2s;
+        }
+        .modal.show { display: flex; }
+        .modal-content {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-xl); max-width: 500px;
+            width: 100%; max-height: 90vh; overflow-y: auto;
+            padding: 2rem; position: relative;
+            box-shadow: var(--shadow-xl); animation: modalIn 0.3s ease;
+        }
+        @keyframes modalIn {
+            from { opacity: 0; transform: scale(0.95) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @media (max-width: 480px) { .modal-content { padding: 1.5rem; } }
+        .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; }
+        .modal-title { font-size: 1.4rem; font-weight: 600; }
+        .modal-close {
+            background: var(--hover-bg); border: none; color: var(--text);
+            font-size: 1.2rem; cursor: pointer; width: 32px; height: 32px;
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; transition: all 0.2s;
+        }
+        .modal-close:hover { background: var(--danger-bg); color: var(--danger); }
+
+        /* Notifications */
+        .notification-container {
+            position: fixed; top: 80px; right: 20px;
+            z-index: 3000; max-width: 90%;
+        }
+        @media (max-width: 480px) { .notification-container { left: 20px; right: 20px; } }
+        .notification {
+            background: var(--bg-card); border-left: 4px solid var(--primary);
+            border-radius: var(--radius); padding: 0.85rem 1.25rem;
+            margin-bottom: 10px; box-shadow: var(--shadow-lg);
+            animation: slideIn 0.3s ease; word-break: break-word;
+            font-size: 0.9rem; display: flex; align-items: center;
+            gap: 10px; min-width: 280px;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .notification.success { border-left-color: var(--success); }
+        .notification.error { border-left-color: var(--danger); }
+        .notification.warning { border-left-color: var(--warning); }
+        .notification.info { border-left-color: var(--info); }
+
+        /* Footer */
+        footer {
+            background: var(--bg-card); border-top: 1px solid var(--border);
+            padding: 3rem 0 1.5rem; margin-top: 4rem;
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 2.5rem; }
+        @media (max-width: 1024px) { .footer-grid { grid-template-columns: repeat(2, 1fr); } }
+        @media (max-width: 640px) { .footer-grid { grid-template-columns: 1fr; } }
+        .footer-logo {
+            font-size: 1.4rem; font-weight: 700;
+            display: flex; align-items: center; gap: 10px;
+            margin-bottom: 1rem; cursor: pointer;
+        }
+        .footer-logo i {
+            background: var(--gradient);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+        }
+        .footer-desc { color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.25rem; }
+        .footer-title { font-size: 1rem; font-weight: 600; margin-bottom: 1.25rem; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.6rem; }
+        .footer-links a { color: var(--text-secondary); text-decoration: none; transition: color 0.2s; cursor: pointer; font-size: 0.9rem; }
+        .footer-links a:hover { color: var(--primary-dark); }
+        .social-links { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-top: 0.5rem; }
+        .social-link {
+            width: 38px; height: 38px; border: 1px solid var(--border);
+            border-radius: 50%; display: flex; align-items: center;
+            justify-content: center; color: var(--text-secondary);
+            text-decoration: none; transition: all 0.2s;
+        }
+        .social-link:hover {
+            background: var(--gradient); border-color: transparent;
+            color: white; transform: translateY(-3px);
+        }
+        .footer-bottom {
+            text-align: center; padding-top: 1.5rem;
+            border-top: 1px solid var(--border);
+            color: var(--text-secondary); font-size: 0.85rem;
+        }
+
+        /* Cookie banner */
+        .cookie-consent {
+            display: none; position: fixed; bottom: 0; left: 0; right: 0;
+            background: var(--bg-card); border-top: 1px solid var(--border);
+            padding: 1rem 2rem; z-index: 9999;
+            justify-content: space-between; align-items: center;
+            flex-wrap: wrap; gap: 1rem;
+            box-shadow: 0 -5px 20px rgba(14,165,233,0.1);
+        }
+        .cookie-consent.show { display: flex; }
+        .cookie-consent p { margin: 0; color: var(--text-secondary); font-size: 0.9rem; flex: 1; }
+        .cookie-buttons { display: flex; gap: 0.5rem; flex-shrink: 0; }
+        @media (max-width: 640px) {
+            .cookie-consent { flex-direction: column; text-align: center; padding: 1rem; }
+            .cookie-buttons { width: 100%; justify-content: center; }
+        }
+
+        /* Blog */
+        .blog-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 1.5rem; }
+        @media (max-width: 480px) { .blog-grid { grid-template-columns: 1fr; } }
+        .blog-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); overflow: hidden;
+            box-shadow: var(--shadow-sm); transition: all 0.3s;
+        }
+        .blog-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .blog-image {
+            height: 150px; background: var(--gradient);
+            display: flex; align-items: center; justify-content: center;
+            color: white; font-size: 2.5rem;
+        }
+        .blog-content { padding: 1.25rem; }
+        .blog-content h3 { font-size: 1.1rem; margin-bottom: 0.5rem; line-height: 1.4; }
+        .blog-meta { color: var(--text-muted); font-size: 0.8rem; margin-bottom: 0.75rem; }
+
+        /* FAQ */
+        .faq-item { border-bottom: 1px solid var(--border); padding: 1rem 0; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; cursor: pointer; gap: 1rem; }
+        .faq-question h3 { margin: 0; font-size: 1rem; font-weight: 500; }
+        .faq-question i { color: var(--primary); transition: transform 0.3s; }
+        .faq-answer { display: none; padding-top: 0.75rem; color: var(--text-secondary); font-size: 0.9rem; line-height: 1.7; }
+        .faq-answer.show { display: block; animation: fadeIn 0.3s; }
+
+        /* Contact */
+        .contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+        .contact-card {
+            background: var(--bg-card); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 1.75rem;
+            text-align: center; box-shadow: var(--shadow-sm);
+            transition: all 0.3s;
+        }
+        .contact-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--primary); }
+        .contact-icon { font-size: 2rem; color: var(--primary); margin-bottom: 0.75rem; }
+
+        /* Utility */
+        .text-center { text-align: center; }
+        .mt-4 { margin-top: 1.5rem; }
+        .mb-4 { margin-bottom: 1.5rem; }
+        .hidden { display: none !important; }
+
+        .empty-state { text-align: center; padding: 2.5rem 1rem; color: var(--text-secondary); }
+        .empty-state i { font-size: 3rem; color: var(--text-muted); margin-bottom: 1rem; }
+
+        /* Scroll to top */
+        .scroll-top {
+            position: fixed; bottom: 2rem; right: 2rem;
+            width: 45px; height: 45px; border-radius: 50%;
+            background: var(--gradient); color: white; border: none;
+            cursor: pointer; display: none; align-items: center;
+            justify-content: center; box-shadow: var(--shadow-lg);
+            z-index: 999; transition: all 0.3s;
+        }
+        .scroll-top.show { display: flex; }
+        .scroll-top:hover { transform: translateY(-3px) scale(1.05); }
+        @media (max-width: 480px) { .scroll-top { bottom: 1.5rem; right: 1.5rem; width: 40px; height: 40px; } }
+
+        /* Prevent horizontal scroll */
+        html, body { overflow-x: hidden; width: 100%; position: relative; }
+        img, video, iframe, table, .university-card, .scholarship-card, .modal-content, .auth-container, .content-section, .dashboard-card, .contact-card, .blog-card { max-width: 100%; height: auto; }
+        .container { width: 100%; overflow-x: hidden; padding-left: max(1rem, env(safe-area-inset-left)); padding-right: max(1rem, env(safe-area-inset-right)); }
+        .table-responsive { overflow-x: auto; -webkit-overflow-scrolling: touch; max-width: 100vw; margin-bottom: 1rem; }
+        .profile-dropdown { max-width: calc(100vw - 2rem); right: 1rem; }
+        @media (max-width: 480px) { .profile-dropdown { right: 0.5rem; min-width: 240px; } }
+
+        /* Blog modal */
+        .blog-modal-content { color: var(--text-secondary); line-height: 1.8; }
+        .blog-modal-content table { width: 100%; border-collapse: collapse; margin: 1rem 0; overflow-x: auto; display: block; }
+        .blog-modal-content th, .blog-modal-content td { padding: 0.6rem; text-align: left; border-bottom: 1px solid var(--border); }
+        .blog-modal-content th { background: var(--bg-secondary); }
+    </style>
+</head>
+<body>
+    <!-- Cookie Banner -->
+    <div class="cookie-consent" id="cookieConsent">
+        <p><i class="fas fa-cookie-bite" style="color: var(--primary); margin-right: 8px;"></i>We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.</p>
+        <div class="cookie-buttons">
+            <button class="btn btn-primary btn-sm" onclick="acceptCookies()">Accept</button>
+            <button class="btn btn-outline btn-sm" onclick="declineCookies()">Decline</button>
+        </div>
+    </div>
+
+    <div class="gradient-bg"></div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo" onclick="navigateTo('home')">
+                <i class="fas fa-graduation-cap"></i>
+                <span>Admission<span style="color: var(--primary-dark);">Helper</span></span>
+            </div>
+
+            <ul class="nav-links">
+                <li><a class="nav-link active" onclick="navigateTo('home')">Home</a></li>
+                <li><a class="nav-link" onclick="navigateTo('universities')">Universities</a></li>
+                <li><a class="nav-link" onclick="navigateTo('scholarships')">Scholarships</a></li>
+                <li><a class="nav-link" onclick="navigateTo('about')">About</a></li>
+                <li><a class="nav-link" onclick="navigateTo('faq')">FAQ</a></li>
+                <li><a class="nav-link" onclick="navigateTo('blog')">Blog</a></li>
+                <li><a class="nav-link" onclick="navigateTo('contact')">Contact</a></li>
+            </ul>
+
+            <div class="user-profile">
+                <button class="profile-btn" id="profileBtn">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="profileName">Guest</span>
+                    <i class="fas fa-chevron-down" style="font-size: 0.7rem;"></i>
+                </button>
+                <div class="profile-dropdown" id="profileDropdown">
+                    <div class="profile-info">
+                        <div class="profile-name" id="dropdownName">Guest User</div>
+                        <div class="profile-email" id="dropdownEmail">guest@example.com</div>
+                    </div>
+                    <button class="profile-dropdown-item hidden" id="adminPanelBtn" onclick="navigateTo('adminDashboard')">
+                        <i class="fas fa-shield-alt"></i> Admin Panel
+                    </button>
+                    <button class="profile-dropdown-item" onclick="navigateTo('dashboard')">
+                        <i class="fas fa-tachometer-alt"></i> Dashboard
+                    </button>
+                    <button class="profile-dropdown-item" onclick="showProfileModal()">
+                        <i class="fas fa-user"></i> My Profile
+                    </button>
+                    <button class="profile-dropdown-item" onclick="showSettingsModal()">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                    <button class="profile-dropdown-item" id="darkModeToggle" onclick="toggleTheme()">
+                        <i class="fas fa-moon"></i> Dark Mode
+                    </button>
+                    <button class="profile-dropdown-item" onclick="logout()">
+                        <i class="fas fa-sign-out-alt"></i> Logout
+                    </button>
+                </div>
+            </div>
+
+            <button class="mobile-toggle" onclick="toggleMobileMenu()">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="container">
+            <!-- HOME -->
+            <div class="page active" id="homePage">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <span class="hero-badge">
+                            <i class="fas fa-rocket"></i> Bangladesh's #1 Admission Platform
+                        </span>
+                        <h1 class="hero-title">
+                            <span class="gradient-text">Smart</span> University<br>Admission Management
+                        </h1>
+                        <p class="hero-subtitle">
+                            Check eligibility, bookmark favorite universities, and track your admission journey –
+                            all in one place for Bangladeshi students.
+                        </p>
+                        <div class="hero-buttons">
+                            <button class="btn btn-primary btn-lg" onclick="navigateTo('universities')">
+                                <i class="fas fa-university"></i> Explore Universities
+                            </button>
+                            <button class="btn btn-secondary btn-lg" onclick="scrollToLogin()">
+                                <i class="fas fa-sign-in-alt"></i> Student Login
+                            </button>
+                        </div>
+                    </div>
+                    <div class="scroll-indicator">
+                        <span>Scroll</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                </div>
+
+                <!-- Auth Forms -->
+                <div class="auth-container" id="authForms">
+                    <!-- Login -->
+                    <div id="loginForm">
+                        <h2 class="auth-title">Welcome Back</h2>
+                        <p class="auth-subtitle">Login to your account</p>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="loginEmail" class="form-input" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Password</label>
+                            <div style="position: relative;">
+                                <input type="password" id="loginPassword" class="form-input" placeholder="Enter your password">
+                                <i class="fas fa-eye" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" onclick="togglePassword('loginPassword', this)"></i>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="login()">
+                            <i class="fas fa-sign-in-alt"></i> Login
+                        </button>
+                        <div class="auth-link">
+                            <a onclick="showForgotPassword()">Forgot Password?</a>
+                        </div>
+                        <div class="auth-link">
+                            Don't have an account? <a onclick="showSignupForm()">Sign Up</a>
+                        </div>
+                        <div class="auth-link hidden" id="adminLoginLink">
+                            <a onclick="showAdminLoginForm()">Admin Login →</a>
+                        </div>
+                    </div>
+
+                    <!-- Signup -->
+                    <div id="signupForm" style="display: none;">
+                        <h2 class="auth-title">Create Account</h2>
+                        <p class="auth-subtitle">Join thousands of students</p>
+                        <div class="form-group">
+                            <label class="form-label">Full Name</label>
+                            <input type="text" id="signupName" class="form-input" placeholder="Enter your full name">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="signupEmail" class="form-input" placeholder="Enter your email">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Phone Number</label>
+                            <input type="tel" id="signupPhone" class="form-input" placeholder="01XXXXXXXXX">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">Password</label>
+                                <div style="position: relative;">
+                                    <input type="password" id="signupPassword" class="form-input" placeholder="Create password">
+                                    <i class="fas fa-eye" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" onclick="togglePassword('signupPassword', this)"></i>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Confirm</label>
+                                <div style="position: relative;">
+                                    <input type="password" id="confirmPassword" class="form-input" placeholder="Confirm password">
+                                    <i class="fas fa-eye" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" onclick="togglePassword('confirmPassword', this)"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label class="form-label">SSC GPA <span style="color: var(--text-muted); font-weight: 400;">(0.00 – 5.00)</span></label>
+                                <input type="number" id="sscGPA" class="form-input" step="0.01" min="0" max="5" placeholder="4.50">
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">HSC GPA <span style="color: var(--text-muted); font-weight: 400;">(0.00 – 5.00)</span></label>
+                                <input type="number" id="hscGPA" class="form-input" step="0.01" min="0" max="5" placeholder="4.80">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Academic Group</label>
+                            <select id="signupGroup" class="form-input">
+                                <option value="">Select Group</option>
+                                <option value="science">Science</option>
+                                <option value="commerce">Commerce</option>
+                                <option value="arts">Arts</option>
+                            </select>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="register()">
+                            <i class="fas fa-user-plus"></i> Create Account
+                        </button>
+                        <div class="auth-link">
+                            Already have an account? <a onclick="showLoginForm()">Login</a>
+                        </div>
+                    </div>
+
+                    <!-- Forgot Password -->
+                    <div id="forgotPasswordForm" style="display: none;">
+                        <h2 class="auth-title">Reset Password</h2>
+                        <p class="auth-subtitle">Enter your email to receive reset link</p>
+                        <div class="form-group">
+                            <label class="form-label">Email Address</label>
+                            <input type="email" id="resetEmail" class="form-input" placeholder="Enter your email">
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="requestPasswordReset()">
+                            <i class="fas fa-paper-plane"></i> Send Reset Link
+                        </button>
+                        <div class="auth-link">
+                            <a onclick="showLoginForm()">← Back to Login</a>
+                        </div>
+                    </div>
+
+                    <!-- Admin Login -->
+                    <div id="adminLoginForm" style="display: none;">
+                        <h2 class="auth-title">Admin Access</h2>
+                        <p class="auth-subtitle">Secure administrator login</p>
+                        <div class="form-group">
+                            <label class="form-label">Admin Email</label>
+                            <input type="email" id="adminEmail" class="form-input" placeholder="admin@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Admin Password</label>
+                            <div style="position: relative;">
+                                <input type="password" id="adminPassword" class="form-input" placeholder="Enter admin password">
+                                <i class="fas fa-eye" style="position: absolute; right: 15px; top: 50%; transform: translateY(-50%); cursor: pointer; color: var(--text-muted);" onclick="togglePassword('adminPassword', this)"></i>
+                            </div>
+                        </div>
+                        <button class="btn btn-primary btn-block" onclick="adminLogin()">
+                            <i class="fas fa-lock"></i> Admin Login
+                        </button>
+                        <div class="auth-link">
+                            <a onclick="showLoginForm()">← Back to User Login</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- UNIVERSITIES -->
+            <div class="page" id="universitiesPage">
+                <div class="content-header">
+                    <h1>Universities in Bangladesh</h1>
+                    <p>Browse all public and private universities offering undergraduate programs</p>
+                </div>
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterUniversities('all', event)">All</button>
+                    <button class="filter-btn" onclick="filterUniversities('public', event)">Public</button>
+                    <button class="filter-btn" onclick="filterUniversities('private', event)">Private</button>
+                </div>
+                <div class="city-filter">
+                    <select id="citySelect" class="form-input">
+                        <option value="">All Cities</option>
+                    </select>
+                </div>
+                <div class="university-grid" id="universitiesGrid"></div>
+            </div>
+
+            <!-- SCHOLARSHIPS -->
+            <div class="page" id="scholarshipsPage">
+                <div class="content-header">
+                    <h1>Scholarships & Financial Aid</h1>
+                    <p>Find funding opportunities for your education</p>
+                </div>
+                <div class="scholarship-grid" id="scholarshipsGrid"></div>
+            </div>
+
+            <!-- ABOUT -->
+            <div class="page" id="aboutPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>About Us</h1>
+                        <p>Your trusted partner in university admissions</p>
+                    </div>
+                    <div class="content-section">
+                        <h2>Our Mission</h2>
+                        <p>To simplify the university admission process for Bangladeshi students by providing a comprehensive, free platform for eligibility checking, and information. We believe every student deserves access to quality higher education without the hassle of complex admission procedures.</p>
+                        <h2>Our Vision</h2>
+                        <p>To become Bangladesh's most trusted and comprehensive university admission platform, helping thousands of students achieve their academic dreams each year by 2030.</p>
+                        <h2>What We Offer</h2>
+                        <ul>
+                            <li>✅ Eligibility checker based on SSC/HSC GPA and academic group</li>
+                            <li>✅ Bookmark favorite universities</li>
+                            <li>✅ Explore all universities and their admission rules</li>
+                            <li>✅ Scholarship finder with personalised matches</li>
+                            <li>✅ Expert guidance articles and blog posts</li>
+                            <li>✅ 24/7 support via email and phone</li>
+                        </ul>
+                        <h2>Our Team</h2>
+                        <p>We are a team of education enthusiasts, software developers, and admission experts dedicated to making higher education more accessible. With years of experience in the Bangladeshi education sector, we understand the challenges students face and have built this platform to address them. Our team is headquartered in Dhaka and works with partner universities across the country.</p>
+                        <h2>Why Choose Us</h2>
+                        <ul>
+                            <li>🎓 Comprehensive database of all public and private universities in Bangladesh</li>
+                            <li>📊 Accurate and up‑to‑date information directly from university sources</li>
+                            <li>🔒 Secure and private – your data is never shared without consent</li>
+                            <li>💬 Free student support – we're here to help</li>
+                            <li>📱 Fully responsive – works on mobile, tablet, and desktop</li>
+                            <li>💰 Always free for students – no hidden fees</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ -->
+            <div class="page" id="faqPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>Frequently Asked Questions</h1>
+                        <p>Find answers to common questions about university admissions</p>
+                    </div>
+                    <div class="content-section">
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>How do I check my eligibility for universities?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Once you create an account and enter your SSC/HSC GPA and academic group, your dashboard will automatically show you all programs you're eligible for. You can also use the "Refresh Eligibility" button on the dashboard to update the list.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>How do I bookmark a university?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>On any university card, click the bookmark icon (♡) to save it. Your bookmarked universities will appear in your Dashboard under "My Bookmarks".</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>Is there any fee to use this platform?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>No, the platform is completely free for students. We do not charge any fees for checking eligibility, comparing universities, or accessing information.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>What documents do I need for admission?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Typically you'll need:
+                                    <ul>
+                                        <li>SSC certificate and marksheet</li>
+                                        <li>HSC certificate and marksheet (or equivalent)</li>
+                                        <li>Recent passport‑size photograph</li>
+                                        <li>National ID or birth certificate</li>
+                                        <li>Application fee payment receipt (if required by the university)</li>
+                                    </ul>
+                                    Some universities may ask for additional documents – check the specific program details.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>How do I reset my password?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Click "Forgot Password?" on the login page, enter your email, and we'll send you a password reset link. The link expires in 1 hour for security.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>Is my personal information secure?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Absolutely. We use industry‑standard encryption to protect your data. Your information is never shared with third parties without your explicit consent. Read our <a onclick="navigateTo('privacy')" style="color: var(--primary-dark);">Privacy Policy</a> for more details.</p>
+                            </div>
+                        </div>
+                        <div class="faq-item">
+                            <div class="faq-question" onclick="toggleFaq(this)">
+                                <h3>How can I contact support?</h3>
+                                <i class="fas fa-chevron-down"></i>
+                            </div>
+                            <div class="faq-answer">
+                                <p>You can reach us via email at <strong>support@admissionhelper.bd</strong>, call us at <strong>+880 1234-567890</strong> (Sun–Thu, 9 AM – 6 PM), or use the <a onclick="navigateTo('contact')" style="color: var(--primary-dark);">Contact Form</a>. We typically reply within 24 hours.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- BLOG -->
+            <div class="page" id="blogPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>Admission Blogs & University Test Rules</h1>
+                        <p>Detailed admission test information for public universities + helpful articles for students.</p>
+                    </div>
+                    <div class="blog-grid" id="blogGrid"></div>
+                </div>
+            </div>
+
+            <!-- Blog Modal -->
+            <div class="modal" id="blogModal">
+                <div class="modal-content" style="max-width: 700px;">
+                    <div class="modal-header">
+                        <h2 class="modal-title" id="blogModalTitle"></h2>
+                        <button class="modal-close" onclick="closeModal('blogModal')">&times;</button>
+                    </div>
+                    <div class="blog-modal-content" id="blogModalContent"></div>
+                </div>
+            </div>
+
+            <!-- CONTACT -->
+            <div class="page" id="contactPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>Contact Us</h1>
+                        <p>We're here to help with any questions</p>
+                    </div>
+                    <div class="contact-grid">
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                            <h3>Email</h3>
+                            <p>support@admissionhelper.bd</p>
+                            <p>info@admissionhelper.bd</p>
+                            <p>We reply within 24 hours</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                            <h3>Phone</h3>
+                            <p>+880 1234-567890</p>
+                            <p>+880 1987-654321</p>
+                            <p>Sun–Thu, 9 AM – 6 PM</p>
+                        </div>
+                        <div class="contact-card">
+                            <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                            <h3>Office</h3>
+                            <p>House 12, Road 5, Dhanmondi</p>
+                            <p>Dhaka – 1205, Bangladesh</p>
+                        </div>
+                    </div>
+                    <div class="content-section">
+                        <h2>Send Us a Message</h2>
+                        <form onsubmit="event.preventDefault(); sendContactMessage()">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label class="form-label">Your Name</label>
+                                    <input type="text" id="contactName" class="form-input" placeholder="Enter your name" required>
+                                </div>
+                                <div class="form-group">
+                                    <label class="form-label">Your Email</label>
+                                    <input type="email" id="contactEmail" class="form-input" placeholder="Enter your email" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Subject</label>
+                                <input type="text" id="contactSubject" class="form-input" placeholder="What is this about?" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Message</label>
+                                <textarea id="contactMessage" class="form-input" rows="5" placeholder="Your message..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SUPPORT -->
+            <div class="page" id="supportPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>Support Center</h1>
+                        <p>Get help with any issues</p>
+                    </div>
+                    <div class="content-section">
+                        <h2>Common Issues & Solutions</h2>
+                        <h3>🔐 Login Problems</h3>
+                        <p>If you're having trouble logging in:</p>
+                        <ul>
+                            <li>Make sure your email and password are correct.</li>
+                            <li>Check if your email is verified (look for a verification email).</li>
+                            <li>Use the "Forgot Password" option to reset your password.</li>
+                            <li>Clear your browser cache and cookies, then try again.</li>
+                        </ul>
+                        <h3>📧 Still Need Help?</h3>
+                        <p>If you're still experiencing issues, please contact our support team:</p>
+                        <ul>
+                            <li>📧 Email: <strong>support@admissionhelper.bd</strong> – we reply within 24 hours.</li>
+                            <li>📞 Phone: <strong>+880 1234-567890</strong> (Sunday–Thursday, 9 AM – 6 PM).</li>
+                            <li>💬 Live chat: Available on this website during business hours.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- PRIVACY -->
+            <div class="page" id="privacyPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>Privacy Policy</h1>
+                        <p>Last updated: March 1, 2025</p>
+                    </div>
+                    <div class="content-section">
+                        <h2>1. Introduction</h2>
+                        <p>Welcome to University Admission Helper ("we", "our", "us"). We are committed to protecting your personal information and your right to privacy. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use our platform.</p>
+                        <h2>2. Information We Collect</h2>
+                        <p>We collect personal information that you voluntarily provide to us when you register, express interest in obtaining information, or contact us. This may include:</p>
+                        <ul>
+                            <li>Name, email address, phone number</li>
+                            <li>SSC/HSC GPA, academic group, institution</li>
+                            <li>Profile picture, bio, address (if provided)</li>
+                            <li>University choices, program preferences</li>
+                        </ul>
+                        <h2>3. How We Use Your Information</h2>
+                        <p>We use your information to:</p>
+                        <ul>
+                            <li>Create and manage your account</li>
+                            <li>Provide eligibility information and recommendations</li>
+                            <li>Send you updates and notifications</li>
+                            <li>Improve our platform and services</li>
+                            <li>Respond to your inquiries and support requests</li>
+                            <li>Comply with legal obligations</li>
+                        </ul>
+                        <h2>4. Sharing Your Information</h2>
+                        <p>We do not sell your personal information. We may share it with:</p>
+                        <ul>
+                            <li>Service providers who assist in operating our platform</li>
+                            <li>Legal authorities when required by law</li>
+                        </ul>
+                        <h2>5. Data Security</h2>
+                        <p>We implement appropriate technical and organisational security measures to protect your personal information. However, no method of transmission over the Internet is 100% secure.</p>
+                        <h2>6. Your Rights</h2>
+                        <p>You have the right to:</p>
+                        <ul>
+                            <li>Access and receive a copy of your personal information</li>
+                            <li>Rectify inaccurate information</li>
+                            <li>Request deletion of your information</li>
+                            <li>Withdraw consent at any time</li>
+                            <li>Opt‑out of marketing communications</li>
+                        </ul>
+                        <h2>7. Cookies</h2>
+                        <p>We use cookies and similar tracking technologies to track activity on our platform. You can instruct your browser to refuse all cookies or to indicate when a cookie is being sent. See our <a onclick="navigateTo('cookies')" style="color: var(--primary-dark);">Cookie Policy</a> for more details.</p>
+                        <h2>8. Changes to This Policy</h2>
+                        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new policy on this page and updating the "Last updated" date.</p>
+                        <h2>9. Contact Us</h2>
+                        <p>If you have questions about this Privacy Policy, please contact us at <strong>privacy@admissionhelper.bd</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TERMS -->
+            <div class="page" id="termsPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>Terms of Service</h1>
+                        <p>Last updated: March 1, 2025</p>
+                    </div>
+                    <div class="content-section">
+                        <h2>1. Acceptance of Terms</h2>
+                        <p>By accessing or using the University Admission Helper platform, you agree to be bound by these Terms of Service. If you disagree with any part, you may not access the platform.</p>
+                        <h2>2. Eligibility</h2>
+                        <p>You must be at least 13 years old to use this platform. By using the platform, you represent that you have the right, authority, and capacity to enter into these Terms.</p>
+                        <h2>3. Account Registration</h2>
+                        <p>When you create an account, you must provide accurate, complete, and current information. You are responsible for safeguarding your password and for all activities that occur under your account.</p>
+                        <h2>4. User Conduct</h2>
+                        <p>You agree not to use the platform to:</p>
+                        <ul>
+                            <li>Violate any applicable laws or regulations</li>
+                            <li>Impersonate any person or entity</li>
+                            <li>Submit false or misleading information</li>
+                            <li>Interfere with the proper functioning of the platform</li>
+                            <li>Attempt to gain unauthorised access to other accounts</li>
+                            <li>Harass, abuse, or harm another person</li>
+                            <li>Upload viruses or malicious code</li>
+                        </ul>
+                        <h2>5. Intellectual Property</h2>
+                        <p>The platform and its original content, features, and functionality are owned by University Admission Helper and are protected by international copyright, trademark, and other intellectual property laws.</p>
+                        <h2>6. Termination</h2>
+                        <p>We may terminate or suspend your account immediately, without prior notice, for any reason, including if you breach these Terms.</p>
+                        <h2>7. Limitation of Liability</h2>
+                        <p>In no event shall University Admission Helper be liable for any indirect, incidental, special, consequential, or punitive damages, including loss of profits, data, use, goodwill, or other intangible losses.</p>
+                        <h2>8. Disclaimer</h2>
+                        <p>Your use of the platform is at your sole risk. The platform is provided on an "AS IS" and "AS AVAILABLE" basis. We make no warranties that the platform will be uninterrupted, timely, secure, or error‑free.</p>
+                        <h2>9. Governing Law</h2>
+                        <p>These Terms shall be governed and construed in accordance with the laws of Bangladesh, without regard to its conflict of law provisions.</p>
+                        <h2>10. Changes to Terms</h2>
+                        <p>We reserve the right to modify or replace these Terms at any time. It is your responsibility to check the Terms periodically for changes.</p>
+                        <h2>11. Contact Us</h2>
+                        <p>If you have any questions about these Terms, please contact us at <strong>terms@admissionhelper.bd</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- COOKIES -->
+            <div class="page" id="cookiesPage">
+                <div class="content-page">
+                    <div class="content-header">
+                        <h1>Cookie Policy</h1>
+                        <p>Last updated: March 1, 2025</p>
+                    </div>
+                    <div class="content-section">
+                        <h2>What Are Cookies</h2>
+                        <p>Cookies are small text files that are placed on your computer or mobile device when you visit a website. They are widely used to make websites work more efficiently and provide information to the website owners.</p>
+                        <h2>How We Use Cookies</h2>
+                        <ul>
+                            <li><strong>Essential Cookies:</strong> Necessary for the website to function properly.</li>
+                            <li><strong>Preference Cookies:</strong> Remember your choices (theme, language).</li>
+                            <li><strong>Analytics Cookies:</strong> Help us understand visitor behavior.</li>
+                            <li><strong>Authentication Cookies:</strong> Remember your login session.</li>
+                        </ul>
+                        <h2>Managing Cookies</h2>
+                        <p>Most web browsers allow you to control cookies through their settings.</p>
+                        <h2>Contact Us</h2>
+                        <p>If you have questions about our use of cookies, contact us at <strong>cookies@admissionhelper.bd</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STUDENT DASHBOARD -->
+            <div class="page" id="dashboardPage">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Student Dashboard</h1>
+                    <button class="btn btn-primary" onclick="checkEligibility()">
+                        <i class="fas fa-sync-alt"></i> Refresh Eligibility
+                    </button>
+                </div>
+                <div class="dashboard-cards">
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-title"><i class="fas fa-university"></i> Eligible Programs</div>
+                        <div class="dashboard-card-value" id="eligibleCount">0</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-title"><i class="fas fa-bookmark"></i> Bookmarks</div>
+                        <div class="dashboard-card-value" id="bookmarkCount">0</div>
+                    </div>
+                    <div class="dashboard-card">
+                        <div class="dashboard-card-title"><i class="fas fa-graduation-cap"></i> Scholarships Applied</div>
+                        <div class="dashboard-card-value" id="scholarshipAppliedCount">0</div>
+                    </div>
+                </div>
+                <div class="applications-section" id="eligibilitySection">
+                    <h3>Universities You Are Eligible For</h3>
+                    <div class="progress-bar"><div class="progress-fill" id="eligibilityProgress"></div></div>
+                    <p id="eligibilityText"></p>
+                    <div class="university-grid" id="eligiblePrograms"></div>
+                </div>
+                <div class="bookmarks-section">
+                    <h3>My Bookmarks</h3>
+                    <div class="bookmarks-grid" id="myBookmarksGrid">
+                        <p class="text-center">No bookmarks yet</p>
+                    </div>
+                </div>
+                <div class="scholarship-apps-section">
+                    <h3>My Scholarship Applications</h3>
+                    <div class="scholarship-apps-grid" id="myScholarshipAppsGrid">
+                        <p class="text-center">No scholarship applications yet</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- ADMIN DASHBOARD -->
+            <div class="page" id="adminDashboardPage">
+                <div class="dashboard-header">
+                    <h1 class="dashboard-title">Admin Dashboard</h1>
+                    <div class="badge" style="font-size: 0.8rem; padding: 0.4rem 1rem;">ADMIN</div>
+                </div>
+                <div class="dashboard-cards">
+                    <div class="dashboard-card"><div class="dashboard-card-title"><i class="fas fa-users"></i> Total Students</div><div class="dashboard-card-value" id="totalStudents">0</div></div>
+                    <div class="dashboard-card"><div class="dashboard-card-title"><i class="fas fa-graduation-cap"></i> Scholarship Apps</div><div class="dashboard-card-value" id="totalScholarshipApps">0</div></div>
+                </div>
+                <div style="margin-bottom:2rem;">
+                    <button class="btn btn-secondary" onclick="loadAdminData()"><i class="fas fa-sync-alt"></i> Refresh</button>
+                </div>
+                <div class="applications-section">
+                    <h3>Registered Students</h3>
+                    <div class="table-responsive">
+                        <table class="applications-table">
+                            <thead><tr><th>Name</th><th>Email</th><th>Phone</th><th>Group</th><th>SSC GPA</th><th>HSC GPA</th><th>IP Address</th></tr></thead>
+                            <tbody id="adminUsersTable"><tr><td colspan="7" class="text-center">No registered users</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="applications-section">
+                    <h3>Scholarship Applications</h3>
+                    <div class="table-responsive">
+                        <table class="applications-table">
+                            <thead><tr><th>Student</th><th>Email</th><th>Scholarship</th><th>University</th><th>Applied On</th></tr></thead>
+                            <tbody id="adminScholarshipTable"><tr><td colspan="5" class="text-center">No applications yet</td></tr></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Profile Modal -->
+    <div class="modal" id="profileModal">
+        <div class="modal-content">
+            <div class="modal-header"><h2 class="modal-title">My Profile</h2><button class="modal-close" onclick="closeModal('profileModal')">&times;</button></div>
+            <form onsubmit="event.preventDefault(); updateProfile()">
+                <div class="form-group"><label class="form-label">Name</label><input type="text" id="profileNameInput" class="form-input"></div>
+                <div class="form-group"><label class="form-label">Email</label><input type="email" id="profileEmailInput" class="form-input" readonly disabled></div>
+                <div class="form-group"><label class="form-label">Phone</label><input type="tel" id="profilePhoneInput" class="form-input"></div>
+                <div class="form-row">
+                    <div class="form-group"><label class="form-label">SSC GPA <span style="color: var(--text-muted); font-weight: 400;">(0.00 – 5.00)</span></label><input type="number" id="profileSSC" class="form-input" step="0.01" min="0" max="5"></div>
+                    <div class="form-group"><label class="form-label">HSC GPA <span style="color: var(--text-muted); font-weight: 400;">(0.00 – 5.00)</span></label><input type="number" id="profileHSC" class="form-input" step="0.01" min="0" max="5"></div>
+                </div>
+                <div class="form-group"><label class="form-label">Academic Group</label>
+                    <select id="profileGroup" class="form-input">
+                        <option value="science">Science</option><option value="commerce">Commerce</option><option value="arts">Arts</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Update Profile</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Settings Modal -->
+    <div class="modal" id="settingsModal">
+        <div class="modal-content">
+            <div class="modal-header"><h2 class="modal-title">Settings</h2><button class="modal-close" onclick="closeModal('settingsModal')">&times;</button></div>
+            <h3 style="margin-bottom: 1rem; font-size: 1.1rem;">Change Password</h3>
+            <form onsubmit="event.preventDefault(); changePassword()">
+                <div class="form-group">
+                    <label class="form-label">Current Password</label>
+                    <div style="position:relative"><input type="password" id="currentPassword" class="form-input"><i class="fas fa-eye" style="position:absolute;right:15px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--text-muted);" onclick="togglePassword('currentPassword',this)"></i></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <div style="position:relative"><input type="password" id="newPassword" class="form-input"><i class="fas fa-eye" style="position:absolute;right:15px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--text-muted);" onclick="togglePassword('newPassword',this)"></i></div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm New Password</label>
+                    <div style="position:relative"><input type="password" id="confirmNewPassword" class="form-input"><i class="fas fa-eye" style="position:absolute;right:15px;top:50%;transform:translateY(-50%);cursor:pointer;color:var(--text-muted);" onclick="togglePassword('confirmNewPassword',this)"></i></div>
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">Change Password</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="notification-container" id="notificationContainer"></div>
+
+    <button class="scroll-top" id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo" onclick="navigateTo('home')">
+                        <i class="fas fa-graduation-cap"></i><span>AdmissionHelper</span>
+                    </div>
+                    <p class="footer-desc">Making university admissions easier for Bangladeshi students since 2024.</p>
+                    <p style="color: var(--text-secondary); margin-bottom: 0.5rem; font-weight: 500;">Find us on:</p>
+                    <div class="social-links">
+                        <a href="https://facebook.com" target="_blank" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://twitter.com" target="_blank" class="social-link"><i class="fab fa-twitter"></i></a>
+                        <a href="https://linkedin.com" target="_blank" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a onclick="navigateTo('home')">Home</a></li>
+                        <li><a onclick="navigateTo('universities')">Universities</a></li>
+                        <li><a onclick="navigateTo('scholarships')">Scholarships</a></li>
+                        <li><a onclick="navigateTo('about')">About</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Resources</h4>
+                    <ul class="footer-links">
+                        <li><a onclick="navigateTo('faq')">FAQ</a></li>
+                        <li><a onclick="navigateTo('blog')">Blog</a></li>
+                        <li><a onclick="navigateTo('support')">Support</a></li>
+                        <li><a onclick="navigateTo('contact')">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Legal</h4>
+                    <ul class="footer-links">
+                        <li><a onclick="navigateTo('privacy')">Privacy</a></li>
+                        <li><a onclick="navigateTo('terms')">Terms</a></li>
+                        <li><a onclick="navigateTo('cookies')">Cookies</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; <span id="currentYear"></span> University Admission Helper. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // ========== GLOBAL VARIABLES ==========
+        let currentUser = null;
+        let universities = [];
+        let scholarships = [];
+        let bookmarks = [];
+        let myScholarshipApps = [];
+
+        // ========== EXTRA BLOGS ==========
+        const extraBlogs = [
+            { id: 101, title: "10 Tips to Ace Your University Admission Test", date: "April 2025", author: "Admission Expert", readTime: "10 min", summary: "Proven strategies to improve your score and reduce exam anxiety.", content: `<h3>1. Start Early</h3><p>Begin preparation at least 3-4 months before the test.</p><h3>2. Understand the Syllabus</h3><p>Get the detailed syllabus from the university website.</p><h3>3. Practice Past Papers</h3><p>Solve at least 5 years of past questions.</p><h3>4. Time Management</h3><p>Divide your time wisely among sections.</p><h3>5. Focus on Weak Areas</h3><p>Identify topics you struggle with and practice more.</p><h3>6. Join Study Groups</h3><p>Discussing with peers can clarify doubts.</p><h3>7. Take Mock Tests</h3><p>Simulate exam conditions to build stamina.</p><h3>8. Stay Healthy</h3><p>Get enough sleep and eat well.</p><h3>9. Review Mistakes</h3><p>Analyze errors and avoid repeating them.</p><h3>10. Stay Positive</h3><p>Confidence is key!</p>` },
+            { id: 102, title: "How to Choose the Right University for You", date: "April 2025", author: "Career Counselor", readTime: "8 min", summary: "Factors to consider: location, reputation, cost, facilities, and placement.", content: `<p>Choosing a university is a life-changing decision. Consider these factors:</p><ul><li><strong>Academic Reputation:</strong> Check rankings and faculty.</li><li><strong>Location:</strong> Urban vs. rural, proximity to home.</li><li><strong>Cost:</strong> Tuition, accommodation, and living expenses.</li><li><strong>Campus Facilities:</strong> Libraries, labs, hostels.</li><li><strong>Placement Record:</strong> Job opportunities after graduation.</li><li><strong>Student Reviews:</strong> Talk to current students or alumni.</li></ul>` },
+            { id: 103, title: "Scholarship Application Guide for Bangladeshi Students", date: "March 2025", author: "Financial Aid Office", readTime: "12 min", summary: "Step-by-step guide to finding and applying for scholarships.", content: `<h3>Step 1: Research</h3><p>Look for scholarships on university websites, government portals, and private organizations.</p><h3>Step 2: Check Eligibility</h3><p>Read criteria carefully – GPA, income, quotas.</p><h3>Step 3: Prepare Documents</h3><p>Academic certificates, income certificate, recommendation letters, statement of purpose.</p><h3>Step 4: Write a Strong Essay</h3><p>Explain why you deserve the scholarship.</p><h3>Step 5: Submit Before Deadline</h3><p>Late applications are usually rejected.</p>` },
+            { id: 104, title: "Managing Exam Stress: A Student's Guide", date: "February 2025", author: "Mental Health Expert", readTime: "7 min", summary: "Simple techniques to stay calm and focused during admission tests.", content: `<p>Exam stress is normal, but too much can harm performance. Try these:</p><ul><li><strong>Deep Breathing:</strong> Inhale for 4 seconds, hold for 4, exhale for 4.</li><li><strong>Regular Breaks:</strong> Study for 50 minutes, rest for 10.</li><li><strong>Exercise:</strong> A short walk can refresh your mind.</li><li><strong>Talk to Someone:</strong> Share your feelings with friends or family.</li><li><strong>Avoid Caffeine:</strong> It can increase anxiety.</li><li><strong>Sleep Well:</strong> At least 7 hours before the exam.</li></ul>` },
+            { id: 105, title: "Common Mistakes to Avoid in Admission Forms", date: "January 2025", author: "Admin Team", readTime: "6 min", summary: "Errors that can lead to application rejection and how to avoid them.", content: `<ul><li><strong>Incorrect Personal Info:</strong> Double-check name spelling, date of birth.</li><li><strong>Missing Documents:</strong> Attach all required certificates.</li><li><strong>Wrong GPA Calculation:</strong> Verify your GPA as per board rules.</li><li><strong>Ignoring Instructions:</strong> Read each field carefully.</li><li><strong>Late Submission:</strong> Submit at least a day before deadline.</li></ul>` },
+            { id: 106, title: "How to Prepare for Viva/Interview", date: "December 2024", author: "Interview Coach", readTime: "9 min", summary: "Tips to ace the viva voce for university admission.", content: `<h3>Before the Interview</h3><ul><li>Research about the university and department.</li><li>Prepare answers for common questions.</li><li>Review your academic subjects.</li><li>Dress formally and arrive early.</li></ul><h3>During the Interview</h3><ul><li>Be confident and polite.</li><li>Listen carefully and answer to the point.</li><li>If you don't know, admit it honestly.</li></ul>` },
+            { id: 107, title: "Understanding the Grading System in Bangladesh", date: "November 2024", author: "Education Board", readTime: "5 min", summary: "How GPA is calculated and what it means for admission.", content: `<p>In Bangladesh, SSC and HSC grades are converted to GPA on a scale of 5.00.</p><table><tr><th>Marks</th><th>Grade</th><th>Grade Point</th></tr><tr><td>80-100</td><td>A+</td><td>5.00</td></tr><tr><td>70-79</td><td>A</td><td>4.00</td></tr><tr><td>60-69</td><td>A-</td><td>3.50</td></tr><tr><td>50-59</td><td>B</td><td>3.00</td></tr><tr><td>40-49</td><td>C</td><td>2.00</td></tr><tr><td>33-39</td><td>D</td><td>1.00</td></tr><tr><td>0-32</td><td>F</td><td>0.00</td></tr></table>` },
+            { id: 108, title: "Top 5 In-Demand Careers in Bangladesh", date: "October 2024", author: "Career Expert", readTime: "8 min", summary: "Which professions are booming and which degrees to pursue.", content: `<ol><li><strong>Software Engineering/IT</strong> – BSc in CSE/IT</li><li><strong>Healthcare</strong> – MBBS, Nursing, Pharmacy</li><li><strong>Business & Finance</strong> – BBA, MBA, Accounting</li><li><strong>Engineering (Civil/Electrical)</strong> – BSc Engineering</li><li><strong>Education & Research</strong> – B.Ed, MSc, PhD</li></ol>` }
+        ];
+
+        function generatePublicUniversityBlogs() {
+            return universities.filter(uni => uni.type === 'public').map(uni => {
+                let testRules = '';
+                if (uni.required_group === 'science') {
+                    testRules = `<h3>Admission Test Format</h3><p>For science group applicants:</p><ul><li><strong>Physics:</strong> 25 marks</li><li><strong>Chemistry:</strong> 25 marks</li><li><strong>Mathematics:</strong> 25 marks</li><li><strong>English:</strong> 15 marks</li><li><strong>General Knowledge:</strong> 10 marks</li></ul><p>Total: 100 marks. Duration: 1.5 hours. Negative marking: 0.25.</p>`;
+                } else {
+                    testRules = `<h3>Admission Test Format</h3><p>For general (arts/commerce) applicants:</p><ul><li><strong>Bengali:</strong> 20 marks</li><li><strong>English:</strong> 20 marks</li><li><strong>General Knowledge:</strong> 20 marks</li><li><strong>Relevant Subject:</strong> 40 marks</li></ul><p>Total: 100 marks. Duration: 1.5 hours. Negative marking: 0.25.</p>`;
+                }
+                return {
+                    id: uni.id,
+                    title: `${uni.name} - Admission Test Rules`,
+                    date: 'March 2025',
+                    author: 'Admission Helper Desk',
+                    readTime: '3 min',
+                    summary: `Complete admission test structure for ${uni.name}.`,
+                    content: `<h2>${uni.name}</h2><p><strong>Type:</strong> ${uni.type}</p><p><strong>Location:</strong> ${uni.city}, ${uni.division}</p><p><strong>Established:</strong> ${uni.established_year}</p><p><strong>Min GPA:</strong> SSC ${uni.min_ssc_gpa}, HSC ${uni.min_hsc_gpa}</p>${uni.required_group ? `<p><strong>Required Group:</strong> ${uni.required_group}</p>` : ''}${testRules}<p><strong>Website:</strong> <a href="${uni.apply_url}" target="_blank">${uni.apply_url}</a></p>`
+                };
+            });
+        }
+
+        let blogArticles = [];
+
+        // ========== INIT ==========
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+            const savedTheme = localStorage.getItem('theme');
+            if (savedTheme === 'dark') {
+                document.body.classList.add('dark-mode');
+                document.getElementById('darkModeToggle').innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            } else {
+                document.getElementById('darkModeToggle').innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            }
+
+            if (!localStorage.getItem('cookieConsent')) {
+                document.getElementById('cookieConsent').classList.add('show');
+            }
+
+            // Enforce GPA limits on all GPA inputs
+            enforceGpaLimits();
+
+            // Load session
+            fetch('api/profile.php')
+                .then(res => { if (res.status === 401) return null; return res.json(); })
+                .then(data => {
+                    if (data && data.id) {
+                        currentUser = data;
+                        updateUserProfile();
+                        if (document.getElementById('dashboardPage').classList.contains('active')) {
+                            loadDashboardData();
+                        }
+                    }
+                })
+                .catch(() => {});
+
+            loadUniversities();
+            loadScholarships();
+
+            // Scroll top button
+            window.addEventListener('scroll', function() {
+                const scrollTop = document.getElementById('scrollTop');
+                if (window.scrollY > 300) scrollTop.classList.add('show');
+                else scrollTop.classList.remove('show');
+            });
+
+            // City filter
+            const citySelect = document.getElementById('citySelect');
+            if (citySelect) {
+                const populateCityDropdown = () => {
+                    const cards = document.querySelectorAll('#universitiesGrid .university-card');
+                    if (cards.length === 0 && universities.length === 0) return;
+                    const citiesSet = new Set();
+                    if (universities.length) {
+                        universities.forEach(uni => { if (uni.city) citiesSet.add(uni.city); });
+                    } else {
+                        cards.forEach(card => {
+                            const locationIcon = card.querySelector('.university-details .fa-map-marker-alt');
+                            if (locationIcon && locationIcon.parentElement) {
+                                let fullText = locationIcon.parentElement.innerText.trim();
+                                let city = fullText.split(',')[0].trim();
+                                if (city) citiesSet.add(city);
+                            }
+                        });
+                    }
+                    const cities = Array.from(citiesSet).sort();
+                    citySelect.innerHTML = '<option value="">All Cities</option>' + cities.map(c => `<option value="${c}">${c}</option>`).join('');
+                };
+                const filterByCity = () => {
+                    const selectedCity = citySelect.value;
+                    document.querySelectorAll('#universitiesGrid .university-card').forEach(card => {
+                        const locationIcon = card.querySelector('.university-details .fa-map-marker-alt');
+                        if (!locationIcon) return;
+                        let fullText = locationIcon.parentElement.innerText.trim();
+                        let city = fullText.split(',')[0].trim();
+                        card.style.display = (selectedCity === '' || city === selectedCity) ? 'flex' : 'none';
+                    });
+                };
+                const observer = new MutationObserver(() => {
+                    if (!window._cityDropdownPopulated && document.querySelector('#universitiesGrid .university-card')) {
+                        populateCityDropdown();
+                        window._cityDropdownPopulated = true;
+                    }
+                    filterByCity();
+                });
+                observer.observe(document.getElementById('universitiesGrid'), { childList: true, subtree: true });
+                if (document.querySelector('#universitiesGrid .university-card')) {
+                    populateCityDropdown();
+                    window._cityDropdownPopulated = true;
+                }
+                citySelect.addEventListener('change', filterByCity);
+            }
+        });
+
+        // ========== SECRET ADMIN ACCESS (Ctrl + Shift + A) ==========
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
+                e.preventDefault();
+                const link = document.getElementById('adminLoginLink');
+                if (link) {
+                    link.classList.toggle('hidden');
+                    showNotification('Admin link toggled', 'info');
+                }
+            }
+        });
+
+        // ========== GPA ENFORCEMENT (0.00 – 5.00) ==========
+        function enforceGpaLimits() {
+            const gpaFields = ['sscGPA', 'hscGPA', 'profileSSC', 'profileHSC'];
+            gpaFields.forEach(id => {
+                const input = document.getElementById(id);
+                if (!input || input.dataset.gpaBound) return;
+                input.dataset.gpaBound = '1';
+
+                input.addEventListener('input', () => {
+                    let v = parseFloat(input.value);
+                    if (isNaN(v)) return;
+                    if (v > 5) input.value = '5.00';
+                    if (v < 0) input.value = '0.00';
+                });
+
+                input.addEventListener('blur', () => {
+                    let v = parseFloat(input.value);
+                    if (isNaN(v) || input.value === '') return;
+                    if (v > 5) v = 5;
+                    if (v < 0) v = 0;
+                    input.value = v.toFixed(2);
+                });
+
+                input.addEventListener('keydown', (e) => {
+                    const allow = ['Backspace', 'Delete', 'Tab', 'ArrowLeft', 'ArrowRight', 'Home', 'End'];
+                    if (allow.includes(e.key)) return;
+                    if (e.key === '.' && input.value.includes('.')) e.preventDefault();
+                    if (!/[0-9.]/.test(e.key)) e.preventDefault();
+                });
+            });
+        }
+
+        // ========== API HELPER ==========
+        async function apiCall(url, method = 'GET', body = null) {
+            const options = { method, headers: { 'Content-Type': 'application/json' } };
+            if (body) options.body = JSON.stringify(body);
+            const res = await fetch(url, options);
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'Request failed');
+            return data;
+        }
+
+        // ========== BLOG ==========
+        function loadBlogs() {
+            const publicBlogs = generatePublicUniversityBlogs();
+            blogArticles = [...publicBlogs, ...extraBlogs];
+            const grid = document.getElementById('blogGrid');
+            if (!grid) return;
+            grid.innerHTML = blogArticles.map(article => `
+                <div class="blog-card">
+                    <div class="blog-image"><i class="fas fa-newspaper"></i></div>
+                    <div class="blog-content">
+                        <h3>${article.title}</h3>
+                        <div class="blog-meta">By ${article.author} • ${article.date} • ${article.readTime} read</div>
+                        <p>${article.summary}</p>
+                        <button class="btn btn-outline btn-sm mt-4" onclick="viewBlogPost(${article.id})">Read More</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function viewBlogPost(id) {
+            const article = blogArticles.find(a => a.id === id);
+            if (!article) return;
+            document.getElementById('blogModalTitle').textContent = article.title;
+            document.getElementById('blogModalContent').innerHTML = article.content;
+            document.getElementById('blogModal').classList.add('show');
+        }
+
+        // ========== AUTH ==========
+        async function login() {
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            if (!email || !password) return showNotification('Please fill in all fields', 'error');
+            try {
+                const data = await apiCall('api/login.php', 'POST', { email, password });
+                currentUser = data.user;
+                showNotification('Login successful!', 'success');
+                updateUserProfile();
+                if (currentUser.user_type === 'admin') {
+                    navigateTo('adminDashboard');
+                    loadAdminData();
+                } else {
+                    navigateTo('dashboard');
+                    loadDashboardData();
+                }
+            } catch (err) {
+                showNotification(err.message, 'error');
+            }
+        }
+
+        async function register() {
+            const name = document.getElementById('signupName').value;
+            const email = document.getElementById('signupEmail').value;
+            const phone = document.getElementById('signupPhone').value;
+            const password = document.getElementById('signupPassword').value;
+            const confirm = document.getElementById('confirmPassword').value;
+            const sscGPA = parseFloat(document.getElementById('sscGPA').value);
+            const hscGPA = parseFloat(document.getElementById('hscGPA').value);
+            const group = document.getElementById('signupGroup').value;
+
+            if (!name || !email || !password || !confirm || isNaN(sscGPA) || isNaN(hscGPA) || !group)
+                return showNotification('Please fill in all fields', 'error');
+
+            if (sscGPA < 0 || sscGPA > 5 || hscGPA < 0 || hscGPA > 5)
+                return showNotification('GPA must be between 0.00 and 5.00', 'error');
+
+            if (password !== confirm)
+                return showNotification('Passwords do not match', 'error');
+
+            try {
+                await apiCall('api/register.php', 'POST', {
+                    name, email, phone, password, sscGPA, hscGPA, group
+                });
+                showNotification('Registration successful! Please login.', 'success');
+                showLoginForm();
+            } catch (err) {
+                showNotification(err.message, 'error');
+            }
+        }
+
+        async function adminLogin() {
+            document.getElementById('loginEmail').value = document.getElementById('adminEmail').value;
+            document.getElementById('loginPassword').value = document.getElementById('adminPassword').value;
+            await login();
+        }
+
+        async function logout() {
+            await fetch('api/logout.php', { method: 'POST' });
+            currentUser = null;
+            myScholarshipApps = [];
+            showNotification('Logged out', 'info');
+            updateUserProfile();
+            navigateTo('home');
+        }
+
+        function requestPasswordReset() {
+            const email = document.getElementById('resetEmail').value;
+            if (!email) return showNotification('Please enter your email', 'error');
+            showNotification('Password reset link sent! (demo)', 'success');
+            setTimeout(() => showLoginForm(), 2000);
+        }
+
+        function updateUserProfile() {
+            const profileName = document.getElementById('profileName');
+            const dropdownName = document.getElementById('dropdownName');
+            const dropdownEmail = document.getElementById('dropdownEmail');
+            const adminPanelBtn = document.getElementById('adminPanelBtn');
+
+            if (currentUser) {
+                profileName.textContent = currentUser.name.split(' ')[0];
+                dropdownName.textContent = currentUser.name;
+                dropdownEmail.textContent = currentUser.email;
+
+                if (currentUser.user_type === 'admin') {
+                    if (adminPanelBtn) adminPanelBtn.classList.remove('hidden');
+                } else {
+                    if (adminPanelBtn) adminPanelBtn.classList.add('hidden');
+                }
+            } else {
+                profileName.textContent = 'Guest';
+                dropdownName.textContent = 'Guest User';
+                dropdownEmail.textContent = 'guest@example.com';
+                if (adminPanelBtn) adminPanelBtn.classList.add('hidden');
+            }
+        }
+
+        // ========== NAVIGATION ==========
+        function navigateTo(page) {
+            if (page === 'adminDashboard' && (!currentUser || currentUser.user_type !== 'admin')) {
+                showNotification('Access denied', 'error');
+                return;
+            }
+
+            if ((page === 'universities' || page === 'scholarships') && !currentUser) {
+                showNotification('Please login to view this content', 'warning');
+                showLoginForm();
+                page = 'home';
+            }
+
+            document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+            const targetPage = document.getElementById(page + 'Page');
+            if (targetPage) targetPage.classList.add('active');
+
+            document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+            const activeLink = Array.from(document.querySelectorAll('.nav-link')).find(l =>
+                l.textContent.trim().toLowerCase() === page.toLowerCase()
+            );
+            if (activeLink) activeLink.classList.add('active');
+
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            if (page === 'universities') loadUniversities();
+            if (page === 'scholarships') loadScholarships();
+            if (page === 'dashboard' && currentUser) loadDashboardData();
+            if (page === 'adminDashboard' && currentUser?.user_type === 'admin') loadAdminData();
+        }
+
+        // Scroll to login form
+        function scrollToLogin() {
+            const homePage = document.getElementById('homePage');
+            if (!homePage.classList.contains('active')) {
+                navigateTo('home');
+                setTimeout(() => {
+                    const authForm = document.getElementById('authForms');
+                    if (authForm) authForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }, 150);
+            } else {
+                const authForm = document.getElementById('authForms');
+                if (authForm) authForm.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+        }
+
+        function toggleMobileMenu() {
+            const navLinks = document.querySelector('.nav-links');
+            if (navLinks.style.display === 'flex') {
+                navLinks.style.display = 'none';
+            } else {
+                navLinks.style.display = 'flex';
+                navLinks.style.position = 'absolute';
+                navLinks.style.top = '100%';
+                navLinks.style.left = '0';
+                navLinks.style.right = '0';
+                navLinks.style.flexDirection = 'column';
+                navLinks.style.background = 'var(--bg-card)';
+                navLinks.style.borderBottom = '1px solid var(--border)';
+                navLinks.style.padding = '1rem';
+                navLinks.style.gap = '0.5rem';
+                navLinks.style.boxShadow = 'var(--shadow-lg)';
+            }
+        }
+
+        function showLoginForm() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+            document.getElementById('adminLoginForm').style.display = 'none';
+        }
+        function showSignupForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+            document.getElementById('adminLoginForm').style.display = 'none';
+        }
+        function showForgotPassword() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'block';
+            document.getElementById('adminLoginForm').style.display = 'none';
+        }
+        function showAdminLoginForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'none';
+            document.getElementById('forgotPasswordForm').style.display = 'none';
+            document.getElementById('adminLoginForm').style.display = 'block';
+        }
+
+        // ========== UNIVERSITIES ==========
+        async function loadUniversities() {
+            try {
+                universities = await apiCall('api/universities.php');
+                renderUniversities(universities);
+                loadBlogs();
+            } catch (err) { console.error(err); }
+        }
+
+        function renderUniversities(unis) {
+            const grid = document.getElementById('universitiesGrid');
+            if (!grid) return;
+            grid.innerHTML = unis.map(uni => {
+                const bookmarked = bookmarks.some(b => b.university_id === uni.id);
+                return `
+                <div class="university-card">
+                    <div class="university-badge">${uni.type}</div>
+                    <h3 class="university-name">${uni.name}</h3>
+                    <div class="university-details">
+                        <div><i class="fas fa-map-marker-alt"></i> ${uni.city}, ${uni.division}</div>
+                        <div><i class="fas fa-calendar"></i> Est. ${uni.established_year}</div>
+                        <div><i class="fas fa-trophy"></i> Rank #${uni.ranking}</div>
+                        <div><i class="fas fa-book"></i> ${uni.programs}+ Programs</div>
+                    </div>
+                    <p>${uni.description}</p>
+                    <div style="display: flex; gap: 10px;">
+                        <button class="btn btn-primary flex-grow" onclick="window.open('${uni.apply_url}', '_blank')"><i class="fas fa-external-link-alt"></i> Check Website</button>
+                        <button class="btn btn-outline" onclick="toggleBookmark(${uni.id}, this)"><i class="${bookmarked ? 'fas' : 'far'} fa-bookmark"></i></button>
+                    </div>
+                </div>`;
+            }).join('');
+        }
+
+        async function filterUniversities(type, event) {
+            document.querySelectorAll('#universitiesPage .filter-btn').forEach(btn => btn.classList.remove('active'));
+            if (event?.target) event.target.classList.add('active');
+            try {
+                const url = type === 'all' ? 'api/universities.php' : `api/universities.php?type=${type}`;
+                const data = await apiCall(url);
+                renderUniversities(data);
+            } catch (err) { showNotification(err.message, 'error'); }
+        }
+
+        // ========== BOOKMARKS ==========
+        async function toggleBookmark(uniId, btn) {
+            if (!currentUser) return showNotification('Please login first', 'warning');
+            const icon = btn.querySelector('i');
+            try {
+                const data = await apiCall('api/bookmark.php', 'POST', { university_id: uniId });
+                if (data.bookmarked) {
+                    icon.classList.remove('far'); icon.classList.add('fas');
+                    showNotification('Bookmarked', 'success');
+                } else {
+                    icon.classList.remove('fas'); icon.classList.add('far');
+                    showNotification('Removed from bookmarks', 'info');
+                }
+                if (currentUser) {
+                    await loadBookmarksList();
+                    if (document.getElementById('dashboardPage').classList.contains('active')) loadDashboardData();
+                    if (document.getElementById('eligibilitySection').style.display !== 'none') await loadEligibleList();
+                }
+            } catch (err) { showNotification(err.message, 'error'); }
+        }
+
+        // ========== SCHOLARSHIPS ==========
+        async function loadScholarships() {
+            try {
+                scholarships = await apiCall('api/scholarships.php');
+                if (currentUser) await loadMyScholarshipApps();
+                renderScholarships(scholarships);
+            } catch (err) { console.error(err); }
+        }
+
+        async function loadMyScholarshipApps() {
+            if (!currentUser) return;
+            try {
+                myScholarshipApps = await apiCall('api/my-scholarship-apps.php');
+                if (document.getElementById('dashboardPage').classList.contains('active')) {
+                    document.getElementById('scholarshipAppliedCount').textContent = myScholarshipApps.length;
+                }
+            } catch (err) { console.error(err); }
+        }
+
+        function renderScholarships(schs) {
+            const grid = document.getElementById('scholarshipsGrid');
+            if (!grid) return;
+            grid.innerHTML = schs.map(s => {
+                const applied = myScholarshipApps.some(app => app.scholarship_id === s.id);
+                return `
+                <div class="scholarship-card">
+                    <div class="scholarship-badge">${s.university_name}</div>
+                    <h3>${s.name}</h3>
+                    <div class="scholarship-amount">৳${parseInt(s.amount).toLocaleString()}</div>
+                    <p>${s.description}</p>
+                    <div class="scholarship-deadline"><i class="fas fa-clock"></i> Deadline: ${new Date(s.deadline).toLocaleDateString()}</div>
+                    ${applied
+                        ? '<button class="btn btn-success btn-block mt-4" disabled><i class="fas fa-check"></i> Applied</button>'
+                        : `<button class="btn btn-outline btn-block mt-4" onclick="applyForScholarship(${s.id})">Apply Now</button>`}
+                </div>`;
+            }).join('');
+        }
+
+        async function applyForScholarship(scholarshipId) {
+            if (!currentUser) { showNotification('Please login first', 'warning'); showLoginForm(); return; }
+            try {
+                await apiCall('api/apply.php', 'POST', { scholarship_id: scholarshipId });
+                showNotification('Scholarship application submitted!', 'success');
+                await loadMyScholarshipApps();
+                renderScholarships(scholarships);
+                if (document.getElementById('dashboardPage').classList.contains('active')) loadDashboardData();
+            } catch (err) { showNotification(err.message, 'error'); }
+        }
+
+        // ========== DASHBOARD ==========
+        async function loadDashboardData() {
+            if (!currentUser) return;
+            try {
+                const data = await apiCall('api/dashboard.php');
+                document.getElementById('eligibleCount').textContent = data.eligible;
+                document.getElementById('bookmarkCount').textContent = data.bookmarks;
+                await loadBookmarksList();
+                await loadEligibleList();
+                await loadMyScholarshipApps();
+                renderMyScholarshipApps();
+                document.getElementById('scholarshipAppliedCount').textContent = myScholarshipApps.length;
+            } catch (err) { showNotification(err.message, 'error'); }
+        }
+
+        async function loadBookmarksList() {
+            try {
+                const marks = await apiCall('api/bookmarks.php');
+                bookmarks = marks;
+                const grid = document.getElementById('myBookmarksGrid');
+                if (marks.length === 0) {
+                    grid.innerHTML = '<div class="empty-state"><i class="fas fa-bookmark"></i><p>No bookmarks yet</p></div>';
+                } else {
+                    grid.innerHTML = marks.map(b => `
+                        <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; margin-bottom:1rem;">
+                            <h4 style="margin-bottom:0.5rem;">${b.university_name}</h4>
+                            <button class="btn btn-sm btn-outline" onclick="toggleBookmark(${b.university_id}, this)"><i class="fas fa-bookmark"></i> Remove</button>
+                        </div>
+                    `).join('');
+                }
+            } catch (err) { showNotification(err.message, 'error'); }
+        }
+
+        function renderMyScholarshipApps() {
+            const grid = document.getElementById('myScholarshipAppsGrid');
+            if (!grid) return;
+            if (myScholarshipApps.length === 0) {
+                grid.innerHTML = '<div class="empty-state"><i class="fas fa-graduation-cap"></i><p>No scholarship applications yet</p></div>';
+            } else {
+                grid.innerHTML = myScholarshipApps.map(app => `
+                    <div style="background:var(--bg-card); border:1px solid var(--border); border-radius:var(--radius); padding:1rem; margin-bottom:1rem;">
+                        <h4 style="margin-bottom:0.5rem;">${app.scholarship_name}</h4>
+                        <p style="font-size:0.9rem; color:var(--text-secondary);"><strong>University:</strong> ${app.university_name}</p>
+                        <p style="font-size:0.9rem; color:var(--text-secondary);"><strong>Applied on:</strong> ${new Date(app.applied_at).toLocaleDateString()}</p>
+                    </div>
+                `).join('');
+            }
+        }
+
+        async function loadEligibleList() {
+            if (!currentUser) return;
+            const eligible = universities.filter(uni => {
+                const meetsSSC = uni.min_ssc_gpa <= currentUser.ssc_gpa;
+                const meetsHSC = uni.min_hsc_gpa <= currentUser.hsc_gpa;
+                const groupMatch = !uni.required_group || uni.required_group === currentUser.academic_group;
+                return meetsSSC && meetsHSC && groupMatch;
+            });
+            const percentage = Math.min(100, Math.round((eligible.length / universities.length) * 100));
+            document.getElementById('eligibilityProgress').style.width = percentage + '%';
+            document.getElementById('eligibilityText').textContent = `You are eligible for ${eligible.length} out of ${universities.length} programs based on your GPA and group.`;
+            const eligibleGrid = document.getElementById('eligiblePrograms');
+            if (eligible.length === 0) {
+                eligibleGrid.innerHTML = '<div class="empty-state"><i class="fas fa-search"></i><p>No eligible programs found.</p></div>';
+            } else {
+                eligibleGrid.innerHTML = eligible.map(uni => {
+                    const bookmarked = bookmarks.some(b => b.university_id === uni.id);
+                    return `
+                    <div class="university-card">
+                        <div class="university-badge">${uni.type}</div>
+                        <h3 class="university-name">${uni.name}</h3>
+                        <div class="university-details">
+                            <div><i class="fas fa-map-marker-alt"></i> ${uni.city}, ${uni.division}</div>
+                            <div><i class="fas fa-calendar"></i> Est. ${uni.established_year}</div>
+                            <div><i class="fas fa-trophy"></i> Rank #${uni.ranking}</div>
+                        </div>
+                        <p>${uni.description}</p>
+                        <div style="display: flex; gap: 10px;">
+                            <button class="btn btn-primary flex-grow" onclick="window.open('${uni.apply_url}', '_blank')"><i class="fas fa-external-link-alt"></i> Check Website</button>
+                            <button class="btn btn-outline" onclick="toggleBookmark(${uni.id}, this)"><i class="${bookmarked ? 'fas' : 'far'} fa-bookmark"></i></button>
+                        </div>
+                    </div>`;
+                }).join('');
+            }
+        }
+
+        async function checkEligibility() {
+            if (!currentUser) return showNotification('Please login first', 'warning');
+            await loadEligibleList();
+            showNotification('Eligibility list refreshed!', 'success');
+        }
+
+        // ========== ADMIN ==========
+        async function loadAdminData() {
+            if (!currentUser || currentUser.user_type !== 'admin') {
+                showNotification('Access denied', 'error');
+                return;
+            }
+            try {
+                const stats = await apiCall('api/admin/stats.php');
+                document.getElementById('totalStudents').textContent = stats.students;
+                document.getElementById('totalScholarshipApps').textContent = stats.scholarship_apps;
+
+                const users = await apiCall('api/admin/users.php');
+                const usersTbody = document.getElementById('adminUsersTable');
+                if (users.length === 0) {
+                    usersTbody.innerHTML = '<tr><td colspan="7" class="text-center">No registered users</td></tr>';
+                } else {
+                    usersTbody.innerHTML = users.map(u => `
+                        <tr>
+                            <td>${u.name}</td><td>${u.email}</td><td>${u.phone || ''}</td>
+                            <td>${u.academic_group}</td><td>${u.ssc_gpa}</td><td>${u.hsc_gpa}</td>
+                            <td>${u.ip_address || 'N/A'}</td>
+                        </tr>`).join('');
+                }
+
+                const apps = await apiCall('api/admin/scholarship_apps.php');
+                const appsTbody = document.getElementById('adminScholarshipTable');
+                if (apps.length === 0) {
+                    appsTbody.innerHTML = '<tr><td colspan="5" class="text-center">No applications yet</td></tr>';
+                } else {
+                    appsTbody.innerHTML = apps.map(app => `
+                        <tr>
+                            <td>${app.student_name}</td><td>${app.student_email}</td>
+                            <td>${app.scholarship_name}</td><td>${app.university_name}</td>
+                            <td>${new Date(app.applied_at).toLocaleDateString()}</td>
+                        </tr>`).join('');
+                }
+            } catch (err) { showNotification(err.message, 'error'); }
+        }
+
+        // ========== PROFILE ==========
+        async function showProfileModal() {
+            if (!currentUser) return showNotification('Please login first', 'warning');
+            try {
+                const user = await apiCall('api/profile.php');
+                document.getElementById('profileNameInput').value = user.name;
+                document.getElementById('profileEmailInput').value = user.email;
+                document.getElementById('profilePhoneInput').value = user.phone || '';
+                document.getElementById('profileSSC').value = user.ssc_gpa;
+                document.getElementById('profileHSC').value = user.hsc_gpa;
+                document.getElementById('profileGroup').value = user.academic_group;
+                document.getElementById('profileModal').classList.add('show');
+                enforceGpaLimits();
+            } catch (err) {
+                showNotification(err.message, 'error');
+            }
+        }
+
+        async function updateProfile() {
+            const ssc = parseFloat(document.getElementById('profileSSC').value);
+            const hsc = parseFloat(document.getElementById('profileHSC').value);
+
+            if (isNaN(ssc) || isNaN(hsc))
+                return showNotification('Please enter valid GPAs', 'error');
+
+            if (ssc < 0 || ssc > 5 || hsc < 0 || hsc > 5)
+                return showNotification('GPA must be between 0.00 and 5.00', 'error');
+
+            const data = {
+                name: document.getElementById('profileNameInput').value,
+                phone: document.getElementById('profilePhoneInput').value,
+                ssc_gpa: ssc,
+                hsc_gpa: hsc,
+                academic_group: document.getElementById('profileGroup').value
+            };
+            try {
+                await apiCall('api/profile.php', 'POST', data);
+                showNotification('Profile updated', 'success');
+                closeModal('profileModal');
+                currentUser = { ...currentUser, ...data };
+                updateUserProfile();
+            } catch (err) {
+                showNotification(err.message, 'error');
+            }
+        }
+
+        function showSettingsModal() {
+            if (!currentUser) return showNotification('Please login first', 'warning');
+            document.getElementById('settingsModal').classList.add('show');
+        }
+
+        async function changePassword() {
+            const current = document.getElementById('currentPassword').value;
+            const newPass = document.getElementById('newPassword').value;
+            const confirm = document.getElementById('confirmNewPassword').value;
+            if (!current || !newPass || !confirm) return showNotification('Fill all fields', 'error');
+            if (newPass !== confirm) return showNotification('New passwords do not match', 'error');
+            try {
+                await apiCall('api/settings.php', 'POST', { current_password: current, new_password: newPass });
+                showNotification('Password changed', 'success');
+                closeModal('settingsModal');
+                document.getElementById('currentPassword').value = '';
+                document.getElementById('newPassword').value = '';
+                document.getElementById('confirmNewPassword').value = '';
+            } catch (err) { showNotification(err.message, 'error'); }
+        }
+
+        // ========== THEME ==========
+        function toggleTheme() {
+            const body = document.body;
+            const darkToggle = document.getElementById('darkModeToggle');
+            if (body.classList.contains('dark-mode')) {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+                darkToggle.innerHTML = '<i class="fas fa-moon"></i> Dark Mode';
+            } else {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+                darkToggle.innerHTML = '<i class="fas fa-sun"></i> Light Mode';
+            }
+        }
+
+        // ========== UTILS ==========
+        function togglePassword(fieldId, icon) {
+            const field = document.getElementById(fieldId);
+            if (field.type === 'password') {
+                field.type = 'text';
+                icon.classList.remove('fa-eye'); icon.classList.add('fa-eye-slash');
+            } else {
+                field.type = 'password';
+                icon.classList.remove('fa-eye-slash'); icon.classList.add('fa-eye');
+            }
+        }
+
+        function closeModal(modalId) { document.getElementById(modalId).classList.remove('show'); }
+
+        function showNotification(message, type = 'info') {
+            const container = document.getElementById('notificationContainer');
+            const notif = document.createElement('div');
+            notif.className = `notification ${type}`;
+            const icons = { success: 'fa-check-circle', error: 'fa-exclamation-circle', warning: 'fa-exclamation-triangle', info: 'fa-info-circle' };
+            notif.innerHTML = `<i class="fas ${icons[type]}" style="color: var(--${type === 'info' ? 'primary' : type});"></i> ${message}`;
+            container.appendChild(notif);
+            setTimeout(() => notif.remove(), 3000);
+        }
+
+        function acceptCookies() {
+            localStorage.setItem('cookieConsent', 'accepted');
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+        function declineCookies() {
+            localStorage.setItem('cookieConsent', 'declined');
+            document.getElementById('cookieConsent').classList.remove('show');
+        }
+
+        function sendContactMessage() {
+            const name = document.getElementById('contactName')?.value;
+            const email = document.getElementById('contactEmail')?.value;
+            const subject = document.getElementById('contactSubject')?.value;
+            const message = document.getElementById('contactMessage')?.value;
+            if (!name || !email || !subject || !message) return showNotification('Please fill all fields', 'error');
+            showNotification('Message sent! We\'ll reply within 24 hours.', 'success');
+            ['contactName','contactEmail','contactSubject','contactMessage'].forEach(id => document.getElementById(id).value = '');
+        }
+
+        function toggleFaq(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('i');
+            answer.classList.toggle('show');
+            if (icon) icon.style.transform = answer.classList.contains('show') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+
+        // Dropdown toggle
+        document.getElementById('profileBtn').addEventListener('click', function(e) {
+            e.stopPropagation();
+            document.getElementById('profileDropdown').classList.toggle('show');
+        });
+        window.addEventListener('click', function() {
+            document.getElementById('profileDropdown').classList.remove('show');
+        });
+        document.getElementById('profileDropdown').addEventListener('click', function(e) {
+            e.stopPropagation();
+        });
+    </script>
+</body>
+</html>
