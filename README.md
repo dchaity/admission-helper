@@ -129,37 +129,37 @@ The platform is **completely free** for students, runs on **free hosting** (Infi
 ## 📁 Project Structure
 admission-helper/
 │
-├── index.html                    # Single-page application
-├── .htaccess                     # Apache config (HTTPS + security)
-├── .gitignore                    # Git ignore rules
-├── README.md                     # Documentation
-├── LICENSE                       # MIT License
-├── database.sql                  # Full DB schema + sample data
+├── index.html                   
+├── .htaccess                     
+├── .gitignore                    
+├── README.md                     
+├── LICENSE                       
+├── database.sql                  
 │
-└── api/                          # PHP backend (REST API)
+└── api/                          
     │
-    ├── config.php                # DB connection + helpers
-    ├── register.php              # POST — student registration
-    ├── login.php                 # POST — authentication
-    ├── logout.php                # POST — destroy session
-    ├── profile.php               # GET/POST — user profile
-    ├── settings.php              # POST — change password
+    ├── config.php               
+    ├── register.php              
+    ├── login.php                 
+    ├── logout.php               
+    ├── profile.php              
+    ├── settings.php              
     │
-    ├── universities.php          # GET — list universities
-    ├── scholarships.php          # GET — list scholarships
+    ├── universities.php          
+    ├── scholarships.php          
     │
-    ├── bookmark.php              # POST — toggle bookmark
-    ├── bookmarks.php             # GET — user bookmarks
+    ├── bookmark.php              
+    ├── bookmarks.php           
     │
-    ├── dashboard.php             # GET — dashboard stats
-    ├── apply.php                 # POST — apply for scholarship
-    ├── my-scholarship-apps.php   # GET — user applications
+    ├── dashboard.php
+    ├── apply.php                 
+    ├── my-scholarship-apps.php   
     │
-    └── admin/                    # Admin-only endpoints
-        ├── .htaccess             # Blocks non-PHP file access
-        ├── stats.php             # GET — platform statistics
-        ├── users.php             # GET — registered students
-        └── scholarship_apps.php  # GET — all applications
+    └── admin/                  
+        ├── .htaccess            
+        ├── stats.php             
+        ├── users.php            
+        └── scholarship_apps.php  
 ```
 
 ### Folder Overview
