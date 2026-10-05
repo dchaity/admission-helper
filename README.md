@@ -129,40 +129,47 @@ The platform is **completely free** for students, runs on **free hosting** (Infi
 ## 📁 Project Structure
 admission-helper/
 │
-├── index.html # Single-page application (SPA)
-├── .htaccess # Apache config: HTTPS redirect, security
-├── .gitignore # Git ignore rules (protects secrets)
-├── README.md # This file
-├── LICENSE # MIT License
-├── database.sql # Full schema + 163 universities + 35 scholarships
+├── index.html                    # Single-page application
+├── .htaccess                     # Apache config (HTTPS + security)
+├── .gitignore                    # Git ignore rules
+├── README.md                     # Documentation
+├── LICENSE                       # MIT License
+├── database.sql                  # Full DB schema + sample data
 │
-└── api/ # PHP backend (REST API)
-│
-├── config.php # DB connection + helper functions
-├── register.php # POST — student registration
-├── login.php # POST — authentication
-├── logout.php # POST — destroy session
-│
-├── profile.php # GET/POST — user profile
-├── settings.php # POST — change password
-│
-├── universities.php # GET — list universities (?type=public|private)
-├── scholarships.php # GET — list scholarships
-│
-├── bookmark.php # POST — toggle bookmark
-├── bookmarks.php # GET — user's bookmarks
-│
-├── dashboard.php # GET — dashboard stats
-├── apply.php # POST — apply for scholarship
-├── my-scholarship-apps.php # GET — user's applications
-│
-└── admin/ # 🔒 Admin-only endpoints
-├── .htaccess # Blocks non-PHP file access
-├── stats.php # GET — platform statistics
-├── users.php # GET — registered students
-└── scholarship_apps.php # GET — all applications
+└── api/                          # PHP backend (REST API)
+    │
+    ├── config.php                # DB connection + helpers
+    ├── register.php              # POST — student registration
+    ├── login.php                 # POST — authentication
+    ├── logout.php                # POST — destroy session
+    ├── profile.php               # GET/POST — user profile
+    ├── settings.php              # POST — change password
+    │
+    ├── universities.php          # GET — list universities
+    ├── scholarships.php          # GET — list scholarships
+    │
+    ├── bookmark.php              # POST — toggle bookmark
+    ├── bookmarks.php             # GET — user bookmarks
+    │
+    ├── dashboard.php             # GET — dashboard stats
+    ├── apply.php                 # POST — apply for scholarship
+    ├── my-scholarship-apps.php   # GET — user applications
+    │
+    └── admin/                    # Admin-only endpoints
+        ├── .htaccess             # Blocks non-PHP file access
+        ├── stats.php             # GET — platform statistics
+        ├── users.php             # GET — registered students
+        └── scholarship_apps.php  # GET — all applications
+```
 
----
+### Folder Overview
+
+| Path | Purpose |
+|------|---------|
+| `index.html` | Single-page frontend (all UI in one file) |
+| `api/` | PHP backend — all REST endpoints |
+| `api/admin/` | Admin-only endpoints, protected by `requireAdmin()` |
+| `database.sql` | Complete schema + 163 universities + 35 scholarships |
 
 ## 🚀 Getting Started
 
