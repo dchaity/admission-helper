@@ -10,7 +10,7 @@
 
 **A comprehensive web platform for Bangladeshi students to manage university admissions — check eligibility, bookmark universities, apply for scholarships, and track their progress.**
 
-[🌐 Live Demo](https://admissionhelper.free.nf) · [🐛 Report Bug](https://github.com/YOUR_USERNAME/admission-helper/issues) · [✨ Request Feature](https://github.com/YOUR_USERNAME/admission-helper/issues)
+[🌐 Live Demo](https://admissionhelper.free.nf) 
 
 </div>
 
