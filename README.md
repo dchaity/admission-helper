@@ -118,11 +118,11 @@ The platform is **completely free** for students, runs on **free hosting** (Infi
 
 | Home Page | Universities |
 |-----------|-------------|
-| ![Home](https://via.placeholder.com/600x350/0ea5e9/ffffff?text=Home+Page) | ![Universities](https://via.placeholder.com/600x350/38bdf8/ffffff?text=Universities) |
+| ![Home](<img width="1587" height="753" alt="Image" src="https://github.com/user-attachments/assets/6f560ece-9152-4d36-9ce7-840bc34716ea" />) | ![Universities](<img width="1600" height="694" alt="Image" src="https://github.com/user-attachments/assets/b35f9063-1bf1-40af-8157-c85faf9f705a" />) |
 
 | Dashboard | Scholarships |
 |-----------|-------------|
-| ![Dashboard](https://via.placeholder.com/600x350/0284c7/ffffff?text=Student+Dashboard) | ![Scholarships](https://via.placeholder.com/600x350/0ea5e9/ffffff?text=Scholarships) |
+| ![Dashboard](<img width="1600" height="692" alt="Image" src="https://github.com/user-attachments/assets/6ea27ea3-4121-4167-b8a8-2fc9cefb6b5a" />) | ![Scholarships](<img width="1600" height="689" alt="Image" src="https://github.com/user-attachments/assets/96c07827-09f1-49d2-92b4-70e920839f84"> /) |
 
 ---
 
